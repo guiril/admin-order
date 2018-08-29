@@ -1,4 +1,7 @@
-@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+  v2.0 | 20110126
+  License: none (public domain)
+*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -17,184 +20,354 @@ time, mark, audio, video {
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline; }
+  vertical-align: baseline;
+}
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-  display: block; }
+  display: block;
+}
 
 body {
-  line-height: 1; }
+  line-height: 1;
+}
 
 ol, ul {
-  list-style: none; }
+  list-style: none;
+}
 
 blockquote, q {
-  quotes: none; }
+  quotes: none;
+}
 
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
-  content: none; }
+  content: none;
+}
 
 table {
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 0;
+}
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 img {
   max-width: 100%;
-  height: auto; }
+  height: auto;
+}
 
 * {
   box-sizing: border-box;
   -moz-box-sizing: border;
-  -webkit-box-sizing: border-box; }
+  -webkit-box-sizing: border-box;
+}
 
 body {
-  font-family: "Helvetica", "sans-serif", "微軟正黑體";
+  font-family: "Helvetica", "Microsoft JhengHei", sans-serif;
   font-size: 16px;
-  background: #F2F2F2; }
+}
+
+h1 {
+  font-size: 24px;
+}
 
 h2 {
   font-size: 24px;
   font-weight: bold;
-  color: #000; }
+}
 
 h3 {
   font-size: 20px;
-  color: #000; }
+  font-weight: bold;
+}
 
-h4 {
-  font-size: 16px; }
+.wrap {
+  width: 100%;
+  background: #F2F2F2;
+}
 
 .container {
-  width: 100%;
   max-width: 1024px;
-  margin: 0 auto; }
+  margin: 0 auto;
+}
+
+.container::after {
+  display: block;
+  clear: both;
+  content: "";
+}
 
 .header {
-  width: 100%;
-  background: #000; }
-  .header .container:after {
-    content: '';
-    display: table;
-    clear: both; }
-
-.logo {
-  float: left; }
-  .logo a {
-    font-weight: bold;
-    font-size: 24px;
-    color: #fff;
-    padding: 21px 42px;
-    display: block; }
-
-.menu {
-  float: left;
-  @inclued clearfix {} }
-  .menu li {
-    float: left; }
-  .menu a {
-    color: #9B9B9B;
-    display: block;
-    padding: 25px 20px;
-    border-bottom: 4px solid transparent; }
-  .menu a:hover {
-    color: #fff;
-    border-bottom: 4px solid #fff; }
-
-.admin {
-  float: right;
-  width: 60px;
+  background: #000;
   color: #fff;
-  font-weight: bold;
-  margin: 25px 42px; }
+}
 
-.content:after {
-  content: '';
-  display: table;
-  clear: both; }
+.header::after {
+  display: block;
+  clear: both;
+  content: "";
+}
 
-.content .overview {
-  padding: 0 42px; }
-  .content .overview:after {
-    content: '';
-    display: table;
-    clear: both; }
-  .content .overview .overview-top:after {
-    content: '';
-    display: table;
-    clear: both; }
-  .content .overview .overview-top h2 {
-    float: left;
-    margin: 30px 0 20px 0; }
-  .content .overview .overview-top .period {
-    float: right;
-    margin-top: 39px; }
-    .content .overview .overview-top .period span {
-      margin-left: 20px;
-      color: #9B9B9B; }
-      .content .overview .overview-top .period span i {
-        color: #000; }
-  .content .overview .overview-box {
-    width: 300px;
-    height: 138px;
-    background: #FFFFFF;
-    -webkit-box-shadow: 0 0 10px 5px #EBEBEB;
-    box-shadow: 0 0 10px 5px #EBEBEB;
-    border-radius: 3px;
-    float: left;
-    margin-right: 20px;
-    text-align: center;
-    padding: 30px 0; }
-    .content .overview .overview-box:last-child {
-      margin-right: 0; }
-    .content .overview .overview-box h4 {
-      margin-bottom: 16px; }
-    .content .overview .overview-box span {
-      font-size: 36px;
-      font-weight: bold; }
-    .content .overview .overview-box .revenue {
-      color: #7ED321; }
-    .content .overview .overview-box .cost {
-      color: #D0021B; }
-    .content .overview .overview-box .income {
-      color: #4A90E2; }
-
-.content .activity {
-  width: 940px;
-  height: 406px;
-  background: #FFFFFF;
-  -webkit-box-shadow: 0 0 10px 5px #EBEBEB;
-  box-shadow: 0 0 10px 5px #EBEBEB;
-  border-radius: 3px;
-  margin: 20px auto;
-  padding: 30px 40px; }
-
-.content .transactionWeb {
-  width: 460px;
-  height: 456px;
-  background: #FFFFFF;
-  -webkit-box-shadow: 0 0 10px 5px #EBEBEB;
-  box-shadow: 0 0 10px 5px #EBEBEB;
-  border-radius: 3px;
-  padding: 30px 40px;
+.header .logo {
   float: left;
   margin-left: 42px;
-  margin-right: 20px;
-  margin-bottom: 42px; }
+  padding: 20px 0;
+  font-weight: bold;
+}
 
-.content .latestOrders {
-  width: 460px;
+.header .menu {
+  float: left;
+  margin-left: 80px;
+  text-align: center;
+}
+
+.header .menu li {
+  display: inline-block;
+  margin-right: 18px;
+}
+
+.header .menu li a {
+  width: 80px;
+  display: inline-block;
+  color: #9B9B9B;
+  font-weight: bold;
+  padding: 25px 0;
+  border-bottom: 4px solid transparent;
+}
+
+.header .menu li a:hover, .header .menu li a.active {
+  color: #fff;
+  border-bottom: 4px solid #fff;
+}
+
+.header .user {
+  float: right;
+  padding: 25px 0;
+  margin-right: 42px;
+  font-weight: bold;
+}
+
+.content {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.overview-title::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+.overview-title h2 {
+  float: left;
+  margin-left: 42px;
+}
+
+.overview-title .period {
+  float: right;
+  margin-right: 42px;
+}
+
+.overview-title .period span {
+  color: #9B9B9B;
+}
+
+.overview-title .period span.change-period {
+  margin-left: 20px;
+}
+
+.overview-title .period i {
+  color: #000;
+  padding: 0 8px;
+}
+
+.income {
+  margin: 20px 42px;
+  text-align: center;
+}
+
+.income li {
+  display: inline-block;
+  width: 31.6%;
+  max-height: 138px;
+  vertical-align: top;
+  background: #fff;
+  -webkit-box-shadow: 0 0 10px 5px #EBEBEB;
+          box-shadow: 0 0 10px 5px #EBEBEB;
+  border-radius: 3px;
+  padding: 30px 0;
+}
+
+.income li:nth-child(2) {
+  margin: 0 2%;
+}
+
+.income li .title i {
+  margin-right: 8px;
+}
+
+.income li .amount {
+  font-size: 36px;
+  margin-top: 16px;
+  font-weight: bold;
+}
+
+.income li .amount.one {
+  color: #7ED321;
+}
+
+.income li .amount.two {
+  color: #D0021B;
+}
+
+.income li .amount.three {
+  color: #4A90E2;
+}
+
+.activity {
+  margin: 0 42px 20px 42px;
+  height: auto;
+  padding: 30px 40px;
+  background: #FFF;
+  -webkit-box-shadow: 0 0 10px 5px #EBEBEB;
+          box-shadow: 0 0 10px 5px #EBEBEB;
+  border-radius: 3px;
+}
+
+.website {
+  float: left;
+  margin-left: 42px;
+  width: 45%;
+  height: 456px;
+  margin-right: 0.4%;
+  background: #FFFFFF;
+  -webkit-box-shadow: 0 0 10px 5px #EBEBEB;
+          box-shadow: 0 0 10px 5px #EBEBEB;
+  border-radius: 3px;
+  padding: 30px 40px;
+}
+
+.website .website-list {
+  margin-top: 6px;
+}
+
+.website .website-list li {
+  border-bottom: 1px solid #EBEBEB;
+  padding: 24px 0;
+}
+
+.website .website-list li:last-child {
+  border: none;
+}
+
+.website .website-list li span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.website .website-list li span.site {
+  color: #9B9B9B;
+  width: 170px;
+  margin-left: 20px;
+}
+
+.website .website-list li span.amount {
+  font-weight: bold;
+  text-align: right;
+  width: 60px;
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.website .website-list li span.up {
+  color: #7ED321;
+}
+
+.website .website-list li span.down {
+  color: #D0021B;
+}
+
+.website .website-list li i {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.website .website-list li i.big {
+  font-size: 40px;
+  width: 45px;
+}
+
+.latest {
+  float: right;
+  margin-right: 42px;
+  width: 45%;
   height: 456px;
   background: #FFFFFF;
   -webkit-box-shadow: 0 0 10px 5px #EBEBEB;
-  box-shadow: 0 0 10px 5px #EBEBEB;
+          box-shadow: 0 0 10px 5px #EBEBEB;
   border-radius: 3px;
   padding: 30px 40px;
+}
+
+.latest .order-list {
+  margin-top: 22px;
+}
+
+.latest .order-list li {
+  position: relative;
+  border-bottom: 1px solid #EBEBEB;
+  padding: 8px 0;
+}
+
+.latest .order-list li::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+.latest .order-list li:last-child {
+  border: none;
+}
+
+.latest .order-list li .pic {
   float: left;
-  margin-bottom: 42px; }
+  margin-right: 20px;
+}
+
+.latest .order-list li .txt {
+  float: left;
+}
+
+.latest .order-list li .txt h3 {
+  margin-top: 10px;
+}
+
+.latest .order-list li .txt span {
+  display: block;
+  margin: 8px 0;
+  color: #9B9B9B;
+}
+
+.latest .order-list li .txt span i {
+  width: 16px;
+  text-align: center;
+}
+
+.latest .order-list li .total {
+  position: absolute;
+  bottom: 30px;
+  right: 0;
+  font-size: 14px;
+  text-align: right;
+  line-height: 1.5;
+}
+
+.latest .order-list li .total .amount {
+  font-size: 20px;
+  font-weight: bold;
+}

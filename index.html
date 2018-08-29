@@ -1,62 +1,138 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant-TW">
 
 <head>
-    <meta charset="UTF-8">
-    <title>03 admin order</title>
-    <link rel="stylesheet" href="css/all.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Admin Order</title>
+  <link rel="stylesheet" href="css/all.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+    crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 </head>
 
 <body>
+  <div class="wrap">
     <div class="header">
-        <div class="container">
-            <div class="logo">
-                <a href="#">
-                    <h1>Shoptime</h1>
-                </a>
-            </div>
-            <ul class="menu">
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">ORDERS</a></li>
-                <li><a href="#">PRODUCT</a></li>
-            </ul>
-            <div class="admin">ADMIN</div>
+      <div class="container">
+        <div class="logo">
+          <h1>Shoptime</h1>
         </div>
+        <ul class="menu">
+          <li><a href="" class="active">HOME</a></li>
+          <li><a href="">ORDERS</a></li>
+          <li><a href="">PRODUCT</a></li>
+        </ul>
+        <div class="user">ADMIN</div>
+      </div>
     </div>
-    <div class="content container">
-        <div class="overview">
-            <div class="overview-top">
-                <h2>OVERVIEW</h2>
-                <div class="period">
-                	<span>2018/6/6 <i class="fas fa-caret-right"></i> 2018/6/13</span>
-                	<span>Weekly <i class="fas fa-caret-down"></i></span>
-                </div>
-            </div>
-            <div class="overview-box">
-                <h4><i class="fas fa-hand-holding-usd"></i> TOTAL REVENUE</h4>
-                <span class="revenue">54,540</span>
-            </div>
-            <div class="overview-box">
-                <h4><i class="fas fa-boxes"></i> TOTAL COST</h4>
-                <span class="cost">12,660</span>
-            </div>
-            <div class="overview-box">
-                <h4><i class="fas fa-money-bill"></i> NET INCOME</h4>
-                <span class="income">41,880</span>
-            </div>
+    <div class="content">
+      <div class="container">
+        <div class="overview-title">
+          <h2>OVERVIEW</h2>
+          <div class="period">
+            <span>2018/6/6</span>
+            <i class="fas fa-caret-right"></i>
+            <span>2018/6/13</span>
+            <span class="change-period">Weekly</span>
+            <i class="fas fa-caret-down"></i>
+          </div>
         </div>
+        <ul class="income">
+          <li>
+            <div class="title">
+              <i class="fas fa-hand-holding-usd"></i>
+              <span>TOTAL REVENUE</span>
+            </div>
+            <div class="amount one">54,540</div>
+          </li>
+          <li>
+            <div class="title">
+              <i class="fas fa-boxes"></i>
+              <span>TOTAL COST</span>
+            </div>
+            <div class="amount two">12,660</div>
+          </li>
+          <li>
+            <div class="title">
+              <i class="fas fa-money-bill"></i>
+              <span>NET INCOME</span>
+            </div>
+            <div class="amount three">41,880</div>
+          </li>
+        </ul>
         <div class="activity">
-            <h2>Activity</h2>
+          <h2>Activity</h2>
+          <canvas id="myChart"></canvas>
         </div>
-        <div class="transactionWeb">
-            <h2>Transaction Website</h2>
+        <div class="website">
+          <h2>Transaction Website</h2>
+          <ul class="website-list">
+            <li>
+              <i class="fab fa-facebook big"></i>
+              <span class="site">Facebook.com</span>
+              <span class="amount">45,836</span>
+              <span class="up"><i class="fas fa-arrow-up"></i> 20%</span>
+            </li>
+            <li>
+              <i class="fab fa-google big"></i>
+              <span class="site">google.com</span>
+              <span class="amount">23,582</span>
+              <span class="up"><i class="fas fa-arrow-up"></i> 12%</span>
+            </li>
+            <li>
+              <i class="fas fa-shopping-bag big"></i>
+              <span class="site">Shopify.com</span>
+              <span class="amount">2,489</span>
+              <span class="down"><i class="fas fa-arrow-down"></i> 15%</span>
+            </li>
+            <li>
+              <i class="fab fa-wordpress big"></i>
+              <span class="site">Wordpress.com</span>
+              <span class="amount">1,057</span>
+              <span class="down"><i class="fas fa-arrow-down"></i> 30%</span>
+            </li>
+          </ul>
         </div>
-        <div class="latestOrders">
-            <h2>Latest Orders</h2>
+        <div class="latest">
+          <h2>Latest Orders</h2>
+          <ul class="order-list">
+            <li>
+              <div class="pic">
+                <img src="https://fakeimg.pl/100x100/">
+              </div>
+              <div class="txt">
+                <h3>Vintage T-shirt</h3>
+                <span class="time"><i class="fas fa-clock"></i> 2018/6/13 13:42</span>
+                <span class="buyer"><i class="fas fa-male"></i> Belle Willis</span>
+              </div>
+              <div class="total">Total<br><span class="amount">3,200</span></div>
+            </li>
+            <li>
+              <div class="pic"><img src="https://fakeimg.pl/100x100/"></div>
+              <div class="txt">
+                <h3>Cowboy Jacket</h3>
+                <span class="time"><i class="fas fa-clock"></i> 2018/6/13 10:45</span>
+                <span class="buyer"><i class="fas fa-male"></i> Adrian Cummings</span>
+              </div>
+              <div class="total">Total<br><span class="amount">2,800</span></div>
+            </li>
+            <li>
+              <div class="pic"><img src="https://fakeimg.pl/100x100/"></div>
+              <div class="txt">
+                <h3>Coach Coat</h3>
+                <span class="time"><i class="fas fa-clock"></i> 2018/6/13 8:26</span>
+                <span class="buyer"><i class="fas fa-male"></i> Lura Holland</span>
+              </div>
+              <div class="total">Total<br><span class="amount">1,600</span></div>
+            </li>
+          </ul>
         </div>
+      </div>
     </div>
+  </div>
+  <script src="js/all.js"></script>
 </body>
 
 </html>

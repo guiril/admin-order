@@ -1,0 +1,262 @@
+@import "clearfix";
+@import "reset";
+@import "box-sizing";
+
+$font-family: "Helvetica", "Microsoft JhengHei", sans-serif;
+$font-size: 16px;
+
+$bg-color: #F2F2F2;
+$green: #7ED321;
+$red: #D0021B;
+$blue: #4A90E2;
+
+$distancX: 42px;
+
+body {
+  font-family: $font-family;
+  font-size: $font-size;
+}
+
+h1 {
+  font-size: $font-size * 1.5;
+}
+
+h2 {
+  font-size: $font-size * 1.5;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: $font-size * 1.25;
+  font-weight: bold;
+}
+
+.wrap {
+  width: 100%;
+  background: $bg-color;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  @include clearfix;
+}
+
+.header {
+  background: #000;
+  color: #fff;
+  @include clearfix;
+  .logo {
+    float: left;
+    margin-left: $distancX;
+    padding: 20px 0;
+    font-weight: bold;
+  }
+  .menu {
+    float: left;
+    margin-left: 80px;
+    text-align: center;
+    li {
+      display: inline-block;
+      margin-right: 18px;
+      a {
+        width: 80px;
+        display: inline-block;
+        color:#9B9B9B;
+        font-weight: bold;
+        padding: 25px 0;
+        border-bottom: 4px solid transparent;
+        &:hover,
+        &.active {
+          color: #fff;
+          border-bottom: 4px solid #fff;
+        }
+      }
+    }
+  }
+  .user {
+    float: right;
+    padding: 25px 0;
+    margin-right: $distancX;
+    font-weight: bold;
+  }
+}
+
+.content {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.overview-title {
+  @include clearfix;
+  h2 {
+    float: left;
+    margin-left: $distancX;
+  }
+  .period {
+    float: right;
+    margin-right: $distancX;
+    span {
+      color:#9B9B9B;
+      &.change-period {
+        margin-left: 20px;
+      }
+    }
+    i {
+      color: #000;
+      padding: 0 8px;
+    }
+  }
+}
+
+.income {
+  margin: 20px $distancX;
+  text-align: center;
+  li {
+    display: inline-block;
+    width: 31.6%;
+    max-height: 138px;
+    vertical-align: top;
+    background: #fff;
+    box-shadow: 0 0 10px 5px #EBEBEB;
+    border-radius: 3px;
+    padding: 30px 0;
+    &:nth-child(2) {
+      margin: 0 2%;
+    }
+    .title {
+      i {
+        margin-right: 8px;
+      }
+    }
+    .amount {
+      font-size: $font-size * 2.25;
+      margin-top: 16px;
+      font-weight: bold;
+      &.one {
+        color: $green
+      }
+      &.two {
+        color: $red;
+      }
+      &.three {
+        color: $blue;
+      }
+    }
+  }
+}
+
+.activity {
+  margin: 0 $distancX 20px $distancX;
+  height: auto;
+  padding: 30px 40px;
+  background: #FFF;
+  box-shadow: 0 0 10px 5px #EBEBEB;
+  border-radius: 3px; 
+}
+
+.website {
+  float: left;
+  margin-left: $distancX;
+  width: 45%;
+  height: 456px;
+  margin-right: 0.4%;
+  background: #FFFFFF;
+  box-shadow: 0 0 10px 5px #EBEBEB;
+  border-radius: 3px;
+  padding: 30px 40px;
+  .website-list {
+    margin-top: 6px;
+    li {
+      border-bottom: 1px solid #EBEBEB;
+      padding: 24px 0;
+      &:last-child {
+        border: none;
+      }
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        &.site {
+          color: #9B9B9B;
+          width: 170px;
+          margin-left: 20px;
+        }
+        &.amount {
+          font-weight: bold;
+          text-align: right;
+          width: 60px;
+          font-size: $font-size * 1.25;
+          margin-right: 20px;
+        }
+        &.up {
+          color: $green;
+        }
+        &.down {
+          color: $red;
+        }
+      }
+      i {
+        display: inline-block;
+        vertical-align: middle;
+        &.big {
+          font-size: $font-size * 2.5;
+          width: 45px;
+        }
+      }
+    }
+  }
+}
+
+.latest {
+  float: right;
+  margin-right: $distancX;
+  width: 45%;
+  height: 456px;
+  background: #FFFFFF;
+  box-shadow: 0 0 10px 5px #EBEBEB;
+  border-radius: 3px;
+  padding: 30px 40px;
+  .order-list {
+    margin-top: 22px;
+    li {
+      position: relative;
+      border-bottom: 1px solid #EBEBEB;
+      padding: 8px 0;
+      @include clearfix;
+      &:last-child {
+        border: none;
+      }
+      .pic {
+        float: left;
+        margin-right: 20px;
+      }
+      .txt {
+        float: left;
+        h3 {
+          margin-top: 10px;
+        }
+        span {
+          display: block;
+          margin: 8px 0;
+          color: #9B9B9B;
+          i {
+            width: 16px;
+            text-align: center;
+          }
+        }
+      }
+      .total {
+        position: absolute;
+        bottom: 30px;
+        right: 0;
+        font-size: 14px;
+        text-align: right;
+        line-height: 1.5;
+        .amount {
+          font-size: $font-size * 1.25;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
