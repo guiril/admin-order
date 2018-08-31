@@ -52,13 +52,22 @@ table {
   border-spacing: 0;
 }
 
-a {
+a,
+a:hover {
   text-decoration: none;
 }
 
 img {
   max-width: 100%;
   height: auto;
+}
+
+ul {
+  font-size: 0;
+}
+
+li {
+  font-size: 16px;
 }
 
 * {
@@ -157,6 +166,11 @@ h3 {
   padding-bottom: 30px;
 }
 
+.overview-title {
+  height: 30px;
+  line-height: 30px;
+}
+
 .overview-title::after {
   display: block;
   clear: both;
@@ -173,17 +187,64 @@ h3 {
   margin-right: 42px;
 }
 
+.overview-title .period::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
 .overview-title .period span {
   color: #9B9B9B;
 }
 
-.overview-title .period span.change-period {
-  margin-left: 20px;
+.overview-title .period .date {
+  float: left;
+  margin-right: 20px;
 }
 
-.overview-title .period i {
-  color: #000;
-  padding: 0 8px;
+.overview-title .period .date i {
+  margin: 0 4px;
+}
+
+.overview-title .period .change {
+  float: left;
+  position: relative;
+  cursor: pointer;
+}
+
+.overview-title .period .change i {
+  margin-left: 4px;
+}
+
+.overview-title .period .change:hover .change-period {
+  display: block;
+}
+
+.overview-title .period .change .change-period {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  color: #000000;
+  background: #ffffff;
+  -webkit-box-shadow: 1px 2px 10px 0 #9B9B9B;
+          box-shadow: 1px 2px 10px 0 #9B9B9B;
+  border-radius: 2px;
+  width: 125px;
+  text-align: center;
+  display: none;
+}
+
+.overview-title .period .change .change-period li {
+  height: 35px;
+  line-height: 35px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.overview-title .period .change .change-period li:hover, .overview-title .period .change .change-period li.active {
+  color: #fff;
+  background: #000000;
 }
 
 .income {
@@ -193,7 +254,7 @@ h3 {
 
 .income li {
   display: inline-block;
-  width: 31.6%;
+  width: 32%;
   max-height: 138px;
   vertical-align: top;
   background: #fff;
@@ -209,6 +270,7 @@ h3 {
 
 .income li .title i {
   margin-right: 8px;
+  font-size: 20px;
 }
 
 .income li .amount {
@@ -272,8 +334,7 @@ h3 {
 
 .website .website-list li span.site {
   color: #9B9B9B;
-  width: 170px;
-  margin-left: 20px;
+  width: 145px;
 }
 
 .website .website-list li span.amount {
@@ -281,15 +342,20 @@ h3 {
   text-align: right;
   width: 60px;
   font-size: 20px;
-  margin-right: 20px;
 }
 
 .website .website-list li span.up {
   color: #7ED321;
+  width: 60px;
+  margin-left: 16px;
+  cursor: pointer;
 }
 
 .website .website-list li span.down {
   color: #D0021B;
+  width: 60px;
+  margin-left: 16px;
+  cursor: pointer;
 }
 
 .website .website-list li i {
@@ -299,7 +365,7 @@ h3 {
 
 .website .website-list li i.big {
   font-size: 40px;
-  width: 45px;
+  width: 55px;
 }
 
 .latest {
@@ -339,21 +405,21 @@ h3 {
   margin-right: 20px;
 }
 
-.latest .order-list li .txt {
+.latest .order-list li .info {
   float: left;
 }
 
-.latest .order-list li .txt h3 {
+.latest .order-list li .info h3 {
   margin-top: 10px;
 }
 
-.latest .order-list li .txt span {
+.latest .order-list li .info span {
   display: block;
   margin: 8px 0;
   color: #9B9B9B;
 }
 
-.latest .order-list li .txt span i {
+.latest .order-list li .info span i {
   width: 16px;
   text-align: center;
 }
@@ -370,4 +436,200 @@ h3 {
 .latest .order-list li .total .amount {
   font-size: 20px;
   font-weight: bold;
+}
+
+.prdocut {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.checkbox input[type="checkbox"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.checkbox input[type="checkbox"]:checked + span {
+  background: #000;
+}
+
+.checkbox input[type="checkbox"]:checked + span i {
+  display: inline-block;
+  color: #fff;
+}
+
+.checkbox span {
+  position: relative;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #000;
+  border-radius: 2px;
+  text-align: center;
+}
+
+.checkbox span i {
+  display: none;
+  font-size: 13px;
+}
+
+.product-top {
+  margin: 0 42px;
+  height: 35px;
+}
+
+.product-top::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+.product-top .check-product {
+  float: left;
+  position: relative;
+  margin-top: 17px;
+}
+
+.product-top .check-product > i {
+  position: absolute;
+  top: -2px;
+  right: -14px;
+}
+
+.product-top .add-product {
+  float: right;
+}
+
+.product-top .add-product .addbtn {
+  font-size: 14px;
+  color: #FFFFFF;
+  font-weight: bold;
+  background: #000000;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 8px 16px;
+}
+
+.product-list {
+  width: 94%;
+  margin: 15px auto;
+  border-radius: 2px;
+}
+
+.product-list thead {
+  background: #FFFFFF;
+  font-weight: bold;
+  text-align: left;
+}
+
+.product-list thead tr th {
+  padding: 15px 20px;
+}
+
+.product-list tbody tr:nth-child(2n) {
+  background: #EBEBEB;
+}
+
+.product-list tbody tr td {
+  padding: 20px;
+}
+
+.table-product {
+  position: relative;
+}
+
+.table-product * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.table-product span {
+  background: #ffffff;
+  border: none;
+}
+
+.table-product .pic {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.table-groups li {
+  padding: 8px 0;
+  line-height: 1.5;
+}
+
+.table-groups li * {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.table-groups li:nth-child(2) {
+  border-top: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+}
+
+.table-groups li .size {
+  width: 90px;
+}
+
+.table-groups li .color {
+  width: 100px;
+}
+
+.table-status {
+  position: relative;
+}
+
+.table-status .change {
+  position: absolute;
+  right: 0;
+  bottom: 25px;
+  height: 40px;
+}
+
+.table-status .change:hover .change-status {
+  display: block;
+}
+
+.table-status .change .editbtn {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 16px;
+  color: #fff;
+  background: #7ED321;
+  border: 1px solid #7ED321;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.table-status .change .editbtn.un {
+  background: #9B9B9B;
+  border: 1px solid #9B9B9B;
+}
+
+.table-status .change .change-status {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 11;
+  color: #000000;
+  background: #ffffff;
+  -webkit-box-shadow: 1px 2px 10px 0 #9B9B9B;
+          box-shadow: 1px 2px 10px 0 #9B9B9B;
+  border-radius: 2px;
+  display: none;
+}
+
+.table-status .change .change-status li {
+  padding: 10px 16px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.table-status .change .change-status li:hover {
+  color: #fff;
+  background: #000000;
 }

@@ -42,6 +42,7 @@ h3 {
   @include clearfix;
 }
 
+// 連結
 .header {
   background: #000;
   color: #fff;
@@ -87,7 +88,10 @@ h3 {
   padding-bottom: 30px;
 }
 
+// 總覽
 .overview-title {
+  height: 30px;
+  line-height: 30px;
   @include clearfix;
   h2 {
     float: left;
@@ -96,25 +100,63 @@ h3 {
   .period {
     float: right;
     margin-right: $distancX;
+    @include clearfix;
     span {
-      color:#9B9B9B;
-      &.change-period {
-        margin-left: 20px;
+      color: #9B9B9B;
+    }
+    .date {
+      float: left;
+      margin-right: 20px;
+      i {
+        margin: 0 4px;
       }
     }
-    i {
-      color: #000;
-      padding: 0 8px;
+    .change {
+      float: left;
+      position: relative;
+      cursor: pointer;
+      i {
+        margin-left: 4px;
+      }
+      &:hover {
+        .change-period {
+          display: block;
+        }
+      }
+      .change-period {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        color: #000000;
+        background: #ffffff;
+        box-shadow: 1px 2px 10px 0 #9B9B9B;
+        border-radius: 2px;
+        width: 125px;
+        text-align: center;
+        display: none;
+        li {
+          height: 35px;
+          line-height: 35px;
+          transition: all 0.3s;
+          cursor: pointer;
+          &:hover,
+          &.active {
+            color: #fff;
+            background: #000000;
+          }
+        }
+      }
     }
   }
 }
 
+// 收支 
 .income {
   margin: 20px $distancX;
   text-align: center;
   li {
     display: inline-block;
-    width: 31.6%;
+    width: 32%;
     max-height: 138px;
     vertical-align: top;
     background: #fff;
@@ -127,6 +169,7 @@ h3 {
     .title {
       i {
         margin-right: 8px;
+        font-size: 20px;
       }
     }
     .amount {
@@ -146,6 +189,7 @@ h3 {
   }
 }
 
+// 圖表
 .activity {
   margin: 0 $distancX 20px $distancX;
   height: auto;
@@ -155,6 +199,7 @@ h3 {
   border-radius: 3px; 
 }
 
+// 平台
 .website {
   float: left;
   margin-left: $distancX;
@@ -178,21 +223,25 @@ h3 {
         vertical-align: middle;
         &.site {
           color: #9B9B9B;
-          width: 170px;
-          margin-left: 20px;
+          width: 145px;
         }
         &.amount {
           font-weight: bold;
           text-align: right;
           width: 60px;
           font-size: $font-size * 1.25;
-          margin-right: 20px;
         }
         &.up {
           color: $green;
+          width: 60px;
+          margin-left: 16px;
+          cursor: pointer;
         }
         &.down {
           color: $red;
+          width: 60px;
+          margin-left: 16px;
+          cursor: pointer;
         }
       }
       i {
@@ -200,13 +249,14 @@ h3 {
         vertical-align: middle;
         &.big {
           font-size: $font-size * 2.5;
-          width: 45px;
+          width: 55px;
         }
       }
     }
   }
 }
 
+// 訂單
 .latest {
   float: right;
   margin-right: $distancX;
@@ -230,7 +280,7 @@ h3 {
         float: left;
         margin-right: 20px;
       }
-      .txt {
+      .info {
         float: left;
         h3 {
           margin-top: 10px;
@@ -255,6 +305,185 @@ h3 {
         .amount {
           font-size: $font-size * 1.25;
           font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+// 新增商品
+
+.prdocut {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.checkbox {
+  input[type="checkbox"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    &:checked {
+      + span {
+        background: #000;
+        i {
+          display: inline-block;
+          color: #fff;
+        }
+      }
+    }
+  }
+  span {
+    position: relative;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #000;
+    border-radius: 2px;
+    text-align: center;
+    i {
+      display: none;
+      font-size: 13px;
+    }
+  }
+}
+
+.product-top {
+  margin: 0 $distancX;
+  height: 35px;
+  @include clearfix;
+  .check-product {
+    float: left;
+    position: relative;
+    margin-top: 17px;
+    > i {
+      position: absolute;
+      top: -2px;
+      right: -14px;
+    }
+  }
+  .add-product {
+    float: right;
+    .addbtn {
+      font-size: 14px;
+      color: #FFFFFF;
+      font-weight: bold;
+      background: #000000;
+      border: 1px solid #000000;
+      border-radius: 4px;
+      cursor: pointer;
+      padding: 8px 16px;
+    }
+  }
+}
+
+.product-list {
+  width: 94%;
+  margin: 15px auto;
+  border-radius: 2px;
+  thead {
+    background: #FFFFFF;
+    font-weight: bold;
+    text-align: left;
+    tr {
+      th {
+        padding: 15px 20px;
+      }
+    }
+  }
+  tbody {
+    tr {
+      &:nth-child(2n) {
+          background: #EBEBEB;
+        }
+      td {
+        padding: 20px;
+      }
+    }
+  }
+}
+
+.table-product {
+  position: relative;
+  * {
+    display: inline-block; 
+    vertical-align: middle;
+  }
+  span {
+    background: #ffffff;
+    border: none;
+  }
+  .pic {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+}
+
+.table-groups {
+  li {
+    padding: 8px 0;
+    line-height: 1.5;
+    * {
+      display: inline-block;
+      vertical-align: top;
+    }
+    &:nth-child(2) {
+      border-top: 1px solid #FFFFFF;
+      border-bottom: 1px solid #FFFFFF;
+    }
+    .size {
+      width: 90px;
+    }
+    .color {
+      width: 100px;
+    }
+  }
+}
+
+.table-status {
+  position: relative;
+  .change {
+    position: absolute;
+    right: 0;
+    bottom: 25px;
+    height: 40px;
+    &:hover {
+      .change-status {
+        display: block;
+      }
+    }
+      .editbtn {
+      font-size: 14px;
+      font-weight: bold;
+      padding: 8px 16px;
+      color: #fff;
+      background: $green;
+      border: 1px solid $green;
+      border-radius: 4px;
+      cursor: pointer;
+      &.un {
+        background: #9B9B9B;
+        border: 1px solid #9B9B9B;
+      }
+    }
+    .change-status {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      z-index: 11;
+      color: #000000;
+      background: #ffffff;
+      box-shadow: 1px 2px 10px 0 #9B9B9B;
+      border-radius: 2px;
+      display: none;
+      li {
+        padding: 10px 16px;
+        cursor: pointer;
+        transition: all 0.3s;
+        &:hover {
+          color: #fff;
+          background: #000000;
         }
       }
     }

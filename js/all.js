@@ -45,3 +45,7 @@ var chart = new Chart(ctx, {
     }
   }
 });
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
