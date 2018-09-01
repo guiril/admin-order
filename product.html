@@ -26,7 +26,7 @@
         <div class="user">ADMIN</div>
       </div>
     </div>
-    <div class="prdocut">
+    <div class="product">
       <div class="container">
         <div class="product-top">
           <div class="check-product">
@@ -37,7 +37,7 @@
             <i class="fas fa-sort-down"></i>
           </div>
           <div class="add-product">
-            <button class="addbtn">ADD NEW PRODUCT <i class="fas fa-plus"></i></button>
+            <button class="addbtn" id="addNewProduct">ADD NEW PRODUCT <i class="fas fa-plus"></i></button>
           </div>
         </div>
         <table class="product-list">
@@ -59,7 +59,7 @@
                   <input type="checkbox">
                   <span><i class="fas fa-check"></i></span>
                 </label>
-                <div class="pic"><img src="https://fakeimg.pl/50/"></div>
+                <div class="pic"><img src="https://picsum.photos/50"></div>
                 <p>Mauris non tem.</p>
               </td>
               <td>$3,200</td>
@@ -73,7 +73,7 @@
               </td>
               <td class="table-status">
                 <div class="change">
-                  <button class="editbtn">PUBLISHED <i class="fas fa-sort-down"></i></button>
+                  <button class="publishbtn">PUBLISHED <i class="fas fa-sort-down"></i></button>
                   <ul class="change-status">
                     <li>PUBLISHED</li>
                     <li>UNPUBLISHED</li>
@@ -87,7 +87,7 @@
                   <input type="checkbox">
                   <span><i class="fas fa-check"></i></span>
                 </label>
-                <div class="pic"><img src="https://fakeimg.pl/50/"></div>
+                <div class="pic"><img src="https://picsum.photos/50"></div>
                 <p>Mauris non tem.</p>
               </td>
               <td>$3,200</td>
@@ -101,7 +101,7 @@
               </td>
               <td class="table-status">
                 <div class="change">
-                  <button class="editbtn">PUBLISHED <i class="fas fa-sort-down"></i></button>
+                  <button class="publishbtn">PUBLISHED <i class="fas fa-sort-down"></i></button>
                   <ul class="change-status">
                     <li>PUBLISHED</li>
                     <li>UNPUBLISHED</li>
@@ -115,7 +115,7 @@
                   <input type="checkbox">
                   <span><i class="fas fa-check"></i></span>
                 </label>
-                <div class="pic"><img src="https://fakeimg.pl/50/"></div>
+                <div class="pic"><img src="https://picsum.photos/50"></div>
                 <p>Mauris non tem.</p>
               </td>
               <td>$3,200</td>
@@ -129,7 +129,35 @@
               </td>
               <td class="table-status">
                 <div class="change">
-                  <button class="editbtn un">UNPUBLISHED <i class="fas fa-sort-down"></i></button>
+                  <button class="publishbtn un">UNPUBLISHED <i class="fas fa-sort-down"></i></button>
+                  <ul class="change-status">
+                    <li>PUBLISHED</li>
+                    <li>UNPUBLISHED</li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="table-product">
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span><i class="fas fa-check"></i></span>
+                </label>
+                <div class="pic"><img src="https://picsum.photos/50"></div>
+                <p>Mauris non tem.</p>
+              </td>
+              <td>$3,200</td>
+              <td>$2,800</td>
+              <td colspan="3">
+                <ul class="table-groups">
+                  <li><span class="size">L</span><span class="color">Gray<br>Black</span><span class="inventory">15<br>20</span></li>
+                  <li><span class="size">L</span><span class="color">Gray<br>Black</span><span class="inventory">15<br>20</span></li>
+                  <li><span class="size">S</span><span class="color">Gray<br>Black</span><span class="inventory">15<br>20</span></li>
+                </ul>
+              </td>
+              <td class="table-status">
+                <div class="change">
+                  <button class="publishbtn un">UNPUBLISHED <i class="fas fa-sort-down"></i></button>
                   <ul class="change-status">
                     <li>PUBLISHED</li>
                     <li>UNPUBLISHED</li>
@@ -141,7 +169,60 @@
         </table>
       </div>
     </div>
-  </div>
+    <div class="add-box">
+      <div class="main">
+        <div class="title">
+          <h2>ADD NEW PRODUCT</h2>
+          <div class="icon-cancel"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="content">
+          <div class="image">
+            <div class="uploadbtn">
+              <i class="fas fa-cloud-upload-alt"></i>
+              <p>Drag an image or click here to upload…</p>
+            </div>
+            <div class="upload">
+              <img src="https://picsum.photos/126" alt="">
+              <img src="https://picsum.photos/126" alt="">
+              <img src="https://picsum.photos/126" alt="">
+              <img src="https://picsum.photos/126" alt="">
+              <img src="https://picsum.photos/126" alt="">
+            </div>
+          </div>
+          <div class="other">
+            <h4>Product Discription</h4>
+            <input class="name" type="text" value="" placeholder="Vestibulum nec">
+            <textarea class="description" placeholder="Writing product descriptions"></textarea>
+            <h4>Price</h4>
+            <div class="price">
+              <label title="Original">Original<input type="text" value="$3,200"></label>
+              <label title="Discount">Discount<input type="text" value="$2,800"></label>
+            </div>
+            <h4>Specification</h4>
+            <div class="specification">
+              <label title="Size">Size
+                <select>
+                  <option value="L">L</option>
+                  <option value="M">M</option>
+                  <option value="S">S</option>
+                </select>
+              </label>
+              <label title="Color">Color<input type="text" value="Gray"></label>
+              <label title="Inventory">Inventory<input type="text" value="15"></label>
+            </div>
+            <div class="new-label">
+              <button class="addbtn" id="addNewSpecification">ADD NEW SPECIFICATION <i class="fas fa-plus"></i></button>
+            </div>
+            <div class="save">
+              <button class="savebtn">SAVE DRAFT</button>
+              <button class="addbtn">PUBLISH</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cover"></div>
+    </div>
+    <script src="js/product.js"></script>
 </body>
 
 </html>

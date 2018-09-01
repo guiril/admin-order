@@ -9,12 +9,39 @@ $bg-color: #F2F2F2;
 $green: #7ED321;
 $red: #D0021B;
 $blue: #4A90E2;
+$orange: #F5A623;
+$gray: #9B9B9B;
+
+.green {
+  background: $green;
+  border: 1px solid $green;
+}
+
+.blue {
+  background: $blue;
+  border: 1px solid $blue;
+}
+
+.orange {
+  background: $orange;
+  border: 1px solid $orange;
+}
+
+.gray {
+  background: $gray;
+  border: 1px solid $gray;
+}
 
 $distancX: 42px;
 
+*,
 body {
   font-family: $font-family;
   font-size: $font-size;
+}
+
+button:focus {
+  outline: none;
 }
 
 h1 {
@@ -28,6 +55,11 @@ h2 {
 
 h3 {
   font-size: $font-size * 1.25;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: $font-size;
   font-weight: bold;
 }
 
@@ -311,11 +343,110 @@ h3 {
   }
 }
 
-// 新增商品
+// order
 
-.prdocut {
+.order {
+  background: #F2F2F2;
   padding-top: 30px;
   padding-bottom: 30px;
+}
+
+.order-top {
+  margin: 0 $distancX;
+  @include clearfix;
+  .check-product {
+    float: left;
+    position: relative;
+    > i {
+      position: absolute;
+      top: -2px;
+      right: -14px;
+    }
+  }
+  .edit {
+    float: right;
+    .editbtn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  }
+}
+
+.order-list {
+  width: 94%;
+  margin: 15px auto;
+  border-radius: 2px;
+  line-height: 1.5;
+  thead {
+    background: #FFFFFF;
+    font-weight: bold;
+    text-align: left;
+    tr {
+      th {
+        padding: 15px 20px;
+      }
+    }
+  }
+  tbody {
+    font-size: 14px;
+    tr {
+      &:nth-child(2n) {
+        background: #EBEBEB;
+      }
+      td {
+        padding: 20px;
+      }
+    }
+  }
+}
+
+.order-status {
+  .change {
+    display: inline-block;
+    position: relative;
+    height: 40px;
+    &:hover {
+      .change-status {
+        display: block;
+      }
+    }
+    .orderbtn {
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      }
+    .change-status {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 10;
+      background: #fff;
+      color: #000;
+      text-align: center;
+      box-shadow: 1px 2px 10px 0 #9B9B9B;
+      border-radius: 2px;
+      cursor: pointer;
+      display: none;
+      li {
+        padding: 8px 16px;
+        transition: all 0.3s;
+        &:hover {
+          color: #fff;
+          background: #000;
+        }
+      }
+    }
+  }
+}
+
+// product
+
+.product {
+  padding-top: 30px;
+  padding-bottom: 45px;
 }
 
 .checkbox {
@@ -365,17 +496,18 @@ h3 {
   }
   .add-product {
     float: right;
-    .addbtn {
-      font-size: 14px;
-      color: #FFFFFF;
-      font-weight: bold;
-      background: #000000;
-      border: 1px solid #000000;
-      border-radius: 4px;
-      cursor: pointer;
-      padding: 8px 16px;
-    }
   }
+}
+
+.addbtn {
+  font-size: 14px;
+  color: #FFFFFF;
+  font-weight: bold;
+  background: #000000;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 8px 16px;
 }
 
 .product-list {
@@ -453,7 +585,7 @@ h3 {
         display: block;
       }
     }
-      .editbtn {
+      .publishbtn {
       font-size: 14px;
       font-weight: bold;
       padding: 8px 16px;
@@ -484,6 +616,199 @@ h3 {
         &:hover {
           color: #fff;
           background: #000000;
+        }
+      }
+    }
+  }
+}
+
+// 新增商品表單
+
+.add-box {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  .cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.5;
+    z-index: 1;
+  }
+  .main {
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    top: 90px;
+    margin-left: -470px;
+    width: 940px;
+    height: 700px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    overflow: auto;
+    .title {
+      background-color: #000;
+      color: #fff;
+      border-radius: 4px 4px 0 0;
+      padding: 20px 35px;
+      @include clearfix;
+      h2 {
+        float: left;
+      }
+      .icon-cancel {
+        float: right;
+        cursor: pointer;
+        font-size: $font-size * 1.38;
+      }
+    }
+    .content {
+      padding-left: 30px;
+      padding-right: 30px;
+      @include clearfix;
+      .image {
+        float: left;
+        width: calc(50% - 30px);
+        margin-right: 30px;
+        .uploadbtn {
+          padding: 25px 45px;
+          margin-bottom: 10px;
+          background: #EBEBEB;
+          text-align: center;
+          color: #757575;
+          font-weight: bold;
+          cursor: pointer;
+          i {
+            font-size: $font-size * 3;
+            margin-bottom: 10px;
+          }
+        }
+        .upload {
+          img {
+            margin-bottom: 8px;
+            vertical-align: top;
+            &:nth-child(3n-1){
+              margin-left: 7px;
+              margin-right: 7px;
+            }
+          }
+        }
+      }
+      .other {
+        float: right;
+        width: 50%;
+        h4 {
+          margin-top: 20px;
+          margin-bottom: 8px;
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+        .name,
+        .description {
+          display: block;
+          padding: 10px 16px;
+          width: 100%;
+          background: #FFFFFF;
+          border: 1px solid #CCCCCC;
+          border-radius: 4px;
+        }
+        .description {
+          height: 170px;
+          margin-top: 8px;
+          background: #FFFFFF;
+          border: 1px solid #CCCCCC;
+          border-radius: 4px;
+          resize: none;
+        }
+        .price {
+          width: 90%;
+          @include clearfix;
+          label {
+            float: left;
+            width: 49%;
+            border: 1px solid #CCCCCC;
+            border-radius: 4px;
+            background: #EBEBEB;
+            padding-left: 8px;
+            height: 35px;
+            line-height: 35px;
+            &:nth-child(2) {
+              margin-left: 2%;
+            }
+          }
+          input {
+            float: right;
+            width: 50%;
+            border: none;
+            background: #fff;
+            text-align: right;
+            padding: 7px 16px;
+            border-radius: 0 4px 4px 0;
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+        .specification {
+          width: 100%;
+          @include clearfix;
+          label {
+            float: left;
+            border: 1px solid #CCCCCC;
+            border-radius: 4px;
+            background: #EBEBEB;
+            padding-left: 8px;
+            margin-bottom: 8px;
+            height: 35px;
+            line-height: 35px;
+            &:nth-child(3n+1) {
+              width: 29%;
+            }
+            &:nth-child(3n-1) {
+              width: 31%;
+              margin-left: 1%; 
+              margin-right: 1%;
+            }
+            &:nth-child(3n) {
+              width: 38%;
+            }
+          }
+          input,
+          select {
+            float: right;
+            width: 50%;
+            border: none;
+            background: #fff;
+            text-align: right;
+            padding: 7px 12px;
+            border-radius: 0 4px 4px 0;
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+        .new-label {
+          margin-top: 8px;
+          .addbtn {
+            width: 100%;
+          }
+        }
+        .save {
+          margin-top: 30px;
+          text-align: right;
+          .savebtn {
+            color: #757575;
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-right: 30px;
+          }
         }
       }
     }

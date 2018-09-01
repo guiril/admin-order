@@ -76,9 +76,34 @@ li {
   -webkit-box-sizing: border-box;
 }
 
+.green {
+  background: #7ED321;
+  border: 1px solid #7ED321;
+}
+
+.blue {
+  background: #4A90E2;
+  border: 1px solid #4A90E2;
+}
+
+.orange {
+  background: #F5A623;
+  border: 1px solid #F5A623;
+}
+
+.gray {
+  background: #9B9B9B;
+  border: 1px solid #9B9B9B;
+}
+
+*,
 body {
   font-family: "Helvetica", "Microsoft JhengHei", sans-serif;
   font-size: 16px;
+}
+
+button:focus {
+  outline: none;
 }
 
 h1 {
@@ -92,6 +117,11 @@ h2 {
 
 h3 {
   font-size: 20px;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 16px;
   font-weight: bold;
 }
 
@@ -438,9 +468,119 @@ h3 {
   font-weight: bold;
 }
 
-.prdocut {
+.order {
+  background: #F2F2F2;
   padding-top: 30px;
   padding-bottom: 30px;
+}
+
+.order-top {
+  margin: 0 42px;
+}
+
+.order-top::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+.order-top .check-product {
+  float: left;
+  position: relative;
+}
+
+.order-top .check-product > i {
+  position: absolute;
+  top: -2px;
+  right: -14px;
+}
+
+.order-top .edit {
+  float: right;
+}
+
+.order-top .edit .editbtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.order-list {
+  width: 94%;
+  margin: 15px auto;
+  border-radius: 2px;
+  line-height: 1.5;
+}
+
+.order-list thead {
+  background: #FFFFFF;
+  font-weight: bold;
+  text-align: left;
+}
+
+.order-list thead tr th {
+  padding: 15px 20px;
+}
+
+.order-list tbody {
+  font-size: 14px;
+}
+
+.order-list tbody tr:nth-child(2n) {
+  background: #EBEBEB;
+}
+
+.order-list tbody tr td {
+  padding: 20px;
+}
+
+.order-status .change {
+  display: inline-block;
+  position: relative;
+  height: 40px;
+}
+
+.order-status .change:hover .change-status {
+  display: block;
+}
+
+.order-status .change .orderbtn {
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.order-status .change .change-status {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+  background: #fff;
+  color: #000;
+  text-align: center;
+  -webkit-box-shadow: 1px 2px 10px 0 #9B9B9B;
+          box-shadow: 1px 2px 10px 0 #9B9B9B;
+  border-radius: 2px;
+  cursor: pointer;
+  display: none;
+}
+
+.order-status .change .change-status li {
+  padding: 8px 16px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.order-status .change .change-status li:hover {
+  color: #fff;
+  background: #000;
+}
+
+.product {
+  padding-top: 30px;
+  padding-bottom: 45px;
 }
 
 .checkbox input[type="checkbox"] {
@@ -501,7 +641,7 @@ h3 {
   float: right;
 }
 
-.product-top .add-product .addbtn {
+.addbtn {
   font-size: 14px;
   color: #FFFFFF;
   font-weight: bold;
@@ -593,7 +733,7 @@ h3 {
   display: block;
 }
 
-.table-status .change .editbtn {
+.table-status .change .publishbtn {
   font-size: 14px;
   font-weight: bold;
   padding: 8px 16px;
@@ -604,7 +744,7 @@ h3 {
   cursor: pointer;
 }
 
-.table-status .change .editbtn.un {
+.table-status .change .publishbtn.un {
   background: #9B9B9B;
   border: 1px solid #9B9B9B;
 }
@@ -632,4 +772,246 @@ h3 {
 .table-status .change .change-status li:hover {
   color: #fff;
   background: #000000;
+}
+
+.add-box {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.add-box .cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.add-box .main {
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  top: 90px;
+  margin-left: -470px;
+  width: 940px;
+  height: 700px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  overflow: auto;
+}
+
+.add-box .main .title {
+  background-color: #000;
+  color: #fff;
+  border-radius: 4px 4px 0 0;
+  padding: 20px 35px;
+}
+
+.add-box .main .title::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+.add-box .main .title h2 {
+  float: left;
+}
+
+.add-box .main .title .icon-cancel {
+  float: right;
+  cursor: pointer;
+  font-size: 22.08px;
+}
+
+.add-box .main .content {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.add-box .main .content::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+.add-box .main .content .image {
+  float: left;
+  width: calc(50% - 30px);
+  margin-right: 30px;
+}
+
+.add-box .main .content .image .uploadbtn {
+  padding: 25px 45px;
+  margin-bottom: 10px;
+  background: #EBEBEB;
+  text-align: center;
+  color: #757575;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.add-box .main .content .image .uploadbtn i {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.add-box .main .content .image .upload img {
+  margin-bottom: 8px;
+  vertical-align: top;
+}
+
+.add-box .main .content .image .upload img:nth-child(3n-1) {
+  margin-left: 7px;
+  margin-right: 7px;
+}
+
+.add-box .main .content .other {
+  float: right;
+  width: 50%;
+}
+
+.add-box .main .content .other h4 {
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.add-box .main .content .other h4:first-child {
+  margin-top: 0;
+}
+
+.add-box .main .content .other .name,
+.add-box .main .content .other .description {
+  display: block;
+  padding: 10px 16px;
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+}
+
+.add-box .main .content .other .description {
+  height: 170px;
+  margin-top: 8px;
+  background: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+  resize: none;
+}
+
+.add-box .main .content .other .price {
+  width: 90%;
+}
+
+.add-box .main .content .other .price::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+.add-box .main .content .other .price label {
+  float: left;
+  width: 49%;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+  background: #EBEBEB;
+  padding-left: 8px;
+  height: 35px;
+  line-height: 35px;
+}
+
+.add-box .main .content .other .price label:nth-child(2) {
+  margin-left: 2%;
+}
+
+.add-box .main .content .other .price input {
+  float: right;
+  width: 50%;
+  border: none;
+  background: #fff;
+  text-align: right;
+  padding: 7px 16px;
+  border-radius: 0 4px 4px 0;
+}
+
+.add-box .main .content .other .price input:focus {
+  outline: none;
+}
+
+.add-box .main .content .other .specification {
+  width: 100%;
+}
+
+.add-box .main .content .other .specification::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+.add-box .main .content .other .specification label {
+  float: left;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+  background: #EBEBEB;
+  padding-left: 8px;
+  margin-bottom: 8px;
+  height: 35px;
+  line-height: 35px;
+}
+
+.add-box .main .content .other .specification label:nth-child(3n+1) {
+  width: 29%;
+}
+
+.add-box .main .content .other .specification label:nth-child(3n-1) {
+  width: 31%;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.add-box .main .content .other .specification label:nth-child(3n) {
+  width: 38%;
+}
+
+.add-box .main .content .other .specification input,
+.add-box .main .content .other .specification select {
+  float: right;
+  width: 50%;
+  border: none;
+  background: #fff;
+  text-align: right;
+  padding: 7px 12px;
+  border-radius: 0 4px 4px 0;
+}
+
+.add-box .main .content .other .specification input:focus,
+.add-box .main .content .other .specification select:focus {
+  outline: none;
+}
+
+.add-box .main .content .other .new-label {
+  margin-top: 8px;
+}
+
+.add-box .main .content .other .new-label .addbtn {
+  width: 100%;
+}
+
+.add-box .main .content .other .save {
+  margin-top: 30px;
+  text-align: right;
+}
+
+.add-box .main .content .other .save .savebtn {
+  color: #757575;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 30px;
 }
