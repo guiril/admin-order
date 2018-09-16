@@ -1,3 +1,3 @@
 # The F2E - Admin Order
-* Scss
-* JavaScript(chart.js)
+* 訂單管理系統
+  * Chart.js 圖表
