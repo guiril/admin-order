@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/all.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
     crossorigin="anonymous">
+  <script src="js/jquery-3.3.1.min.js"></script>
 </head>
 
 <body>
@@ -26,18 +27,89 @@
         <div class="user">ADMIN</div>
       </div>
     </div>
-    <div class="order">
+    <div class="orders-view">
       <div class="container">
-        <div class="order-top">
+        <div class="orders-view-top">
           <div class="check-product">
-            <label class="checkbox">
-              <input type="checkbox">
-              <span><i class="fas fa-check"></i></span>
-            </label>
-            <i class="fas fa-sort-down"></i>
+            <input type="checkbox" id="check-orders">
+            <label class="checkbox" for="check-orders"></label>
           </div>
-          <div class="edit">
-            <button class="editbtn">EDIT SECTION <i class="fas fa-caret-down"></i></button>
+          <div class="product-event-select">
+            <span class="prodoct-event-trigger"></span>
+            <div class="prodoct-event-options">
+              <span class="product-event-option" data-value="Select All">Select All</span>
+              <span class="product-event-option" data-value="Unselect All">Unselect All</span>
+              <span class="product-event-option" data-value="Paid">Paid</span>
+              <span class="product-event-option" data-value="Unpaid">Unpaid</span>
+              <span class="product-event-option" data-value="Shipping">Shipping</span>
+              <span class="product-event-option" data-value="Done">Done</span>
+            </div>
+          </div>
+          <div class="edit-section-select">
+            <button class="edit-section-trigger">EDIT SECTION <i class="fas fa-caret-down"></i></button>
+            <div class="edit-section-options">
+              <span class="edit-section-option">
+                <span class="check-section">
+                  <input type="checkbox" id="check-section-order-id">
+                  <label class="checkbox" for="check-section-order-id"><i class="far fa-square"></i> Order ID</label>
+                </span>
+              </span>
+              <span class="edit-section-option">
+                <span class="check-section">
+                  <input type="checkbox" id="check-section-order-customer">
+                  <label class="checkbox" for="check-section-order-customer"><i class="far fa-square"></i> Customer</label>
+                </span>
+              </span>
+              <span class="edit-section-option">
+                <span class="check-section">
+                  <input type="checkbox" id="check-section-order-productList">
+                  <label class="checkbox" for="check-section-order-productList"><i class="far fa-square"></i> Product
+                    List</label>
+                </span>
+              </span>
+              <span class="edit-section-option">
+                <span class="check-section">
+                  <input type="checkbox" id="check-section-order-total">
+                  <label class="checkbox" for="check-section-order-total"><i class="far fa-square"></i> Total</label>
+                </span>
+              </span>
+              <span class="edit-section-option">
+                <span class="check-section">
+                  <input type="checkbox" id="check-section-order-addToCart">
+                  <label class="checkbox" for="check-section-order-addToCart"><i class="far fa-square"></i> Add to Cart</label>
+                </span>
+              </span>
+              <span class="edit-section-option">
+                <span class="check-section">
+                  <input type="checkbox" id="check-section-order-checkout">
+                  <label class="checkbox" for="check-section-order-checkout"><i class="far fa-square"></i> Check-out</label>
+                </span>
+              </span>
+              <span class="edit-section-option">
+                <span class="check-section">
+                  <input type="checkbox" id="check-section-order-address">
+                  <label class="checkbox" for="check-section-order-address"><i class="far fa-square"></i> Address</label>
+                </span>
+              </span>
+              <span class="edit-section-option">
+                <span class="check-section">
+                  <input type="checkbox" id="check-section-order-phone">
+                  <label class="checkbox" for="check-section-order-phone"><i class="far fa-square"></i> Phone</label>
+                </span>
+              </span>
+              <span class="edit-section-option">
+                <span class="check-section">
+                  <input type="checkbox" id="check-section-order-email">
+                  <label class="checkbox" for="check-section-order-email"><i class="far fa-square"></i> Emaill</label>
+                </span>
+              </span>
+              <span class="edit-section-option">
+                <span class="check-section">
+                  <input type="checkbox" id="check-section-order-status">
+                  <label class="checkbox" for="check-section-order-status"><i class="far fa-square"></i> Status</label>
+                </span>
+              </span>
+            </div>
           </div>
         </div>
         <table class="order-list">
@@ -53,15 +125,29 @@
             </tr>
           </thead>
           <tbody>
+            <!-- 01 -->
             <tr>
-              <td>
-                <label class="checkbox">
-                  <input type="checkbox">
-                  <span><i class="fas fa-check"></i></span>
-                </label>
-                Ian Medina
+              <td class="orders-customer">
+                <div class="check-per-product">
+                  <input type="checkbox" id="check-product1" name="orders">
+                  <label class="checkbox" for="check-product1"></label>
+                </div>
+                <span class="custom-name">Ian Medina</span>
               </td>
-              <td>Vestibulum.</td>
+              <td class="orders-product-list">
+                <ul>
+                  <li>
+                    <span>Vestibulum.</span>
+                    <span class="gray">$1,400</span>
+                    <span class="num">1</span>
+                  </li>
+                  <li>
+                    <span>Fusce vehicu.</span>
+                    <span class="gray">$800</span>
+                    <span class="num">1</span>
+                  </li>
+                </ul>
+              </td>
               <td>$2,200</td>
               <td>
                 <p>2018/6/8</p>
@@ -72,27 +158,28 @@
                 <p>20:23</p>
               </td>
               <td>386 Windler Drives Apt. 358</td>
-              <td class="order-status">
-                <div class="change">
-                  <button class="orderbtn green">PAID <i class="fas fa-sort-down"></i></button>
-                  <ul class="change-status">
-                    <li>Paid</li>
-                    <li>Shipping</li>
-                    <li>Done</li>
-                    <li>Unpaid</li>
-                  </ul>
+              <td class="orders-status">
+                <div class="orders-status-select">
+                  <button class="orders-status-trigger">PAID</button>
+                  <div class="orders-status-options">
+                    <span class="orders-status-option" data-value="Paid">Paid</span>
+                    <span class="orders-status-option" data-value="Unpaid">Unpaid</span>
+                    <span class="orders-status-option" data-value="Shipping">Shipping</span>
+                    <span class="orders-status-option" data-value="Done">Done</span>
+                  </div>
                 </div>
               </td>
             </tr>
+            <!-- 02 -->
             <tr>
-              <td>
-                <label class="checkbox">
-                  <input type="checkbox">
-                  <span><i class="fas fa-check"></i></span>
-                </label>
-                Manuel Stephens
+              <td class="orders-customer">
+                <div class="check-per-product">
+                  <input type="checkbox" id="check-product2" name="orders">
+                  <label class="checkbox" for="check-product2"></label>
+                </div>
+                <span class="custom-name">Manuel Stephens</span>
               </td>
-              <td>Donec facili.</td>
+              <td class="orders-product-list">Donec facili.</td>
               <td>$2,200</td>
               <td>
                 <p>2018/6/8</p>
@@ -103,27 +190,28 @@
                 <p>20:23</p>
               </td>
               <td>531 Orval Mission Suite 134</td>
-              <td class="order-status">
-                <div class="change">
-                  <button class="orderbtn gray">UNPAID <i class="fas fa-sort-down"></i></button>
-                  <ul class="change-status">
-                    <li>Paid</li>
-                    <li>Shipping</li>
-                    <li>Done</li>
-                    <li>Unpaid</li>
-                  </ul>
+              <td class="orders-status">
+                <div class="orders-status-select">
+                  <button class="orders-status-trigger">PAID</button>
+                  <div class="orders-status-options">
+                    <span class="orders-status-option" data-value="Paid">Paid</span>
+                    <span class="orders-status-option" data-value="Unpaid">Unpaid</span>
+                    <span class="orders-status-option" data-value="Shipping">Shipping</span>
+                    <span class="orders-status-option" data-value="Done">Done</span>
+                  </div>
                 </div>
               </td>
             </tr>
+            <!-- 03 -->
             <tr>
-              <td>
-                <label class="checkbox">
-                  <input type="checkbox">
-                  <span><i class="fas fa-check"></i></span>
-                </label>
-                Manuel Stephens
+              <td class="orders-customer">
+                <div class="check-per-product">
+                  <input type="checkbox" id="check-product3" name="orders">
+                  <label class="checkbox" for="check-product3"></label>
+                </div>
+                <span class="custom-name">Manuel Stephens</span>
               </td>
-              <td>Donec facili.</td>
+              <td class="orders-product-list">Donec facili.</td>
               <td>$2,200</td>
               <td>
                 <p>2018/6/8</p>
@@ -134,27 +222,28 @@
                 <p>20:23</p>
               </td>
               <td>531 Orval Mission Suite 134</td>
-              <td class="order-status">
-                <div class="change">
-                  <button class="orderbtn blue">DONE <i class="fas fa-sort-down"></i></button>
-                  <ul class="change-status">
-                    <li>Paid</li>
-                    <li>Shipping</li>
-                    <li>Done</li>
-                    <li>Unpaid</li>
-                  </ul>
+              <td class="orders-status">
+                <div class="orders-status-select">
+                  <button class="orders-status-trigger">PAID</button>
+                  <div class="orders-status-options">
+                    <span class="orders-status-option" data-value="Paid">Paid</span>
+                    <span class="orders-status-option" data-value="Unpaid">Unpaid</span>
+                    <span class="orders-status-option" data-value="Shipping">Shipping</span>
+                    <span class="orders-status-option" data-value="Done">Done</span>
+                  </div>
                 </div>
               </td>
             </tr>
+            <!-- 04 -->
             <tr>
-              <td>
-                <label class="checkbox">
-                  <input type="checkbox">
-                  <span><i class="fas fa-check"></i></span>
-                </label>
-                Manuel Stephens
+              <td class="orders-customer">
+                <div class="check-per-product">
+                  <input type="checkbox" id="check-product4" name="orders">
+                  <label class="checkbox" for="check-product4"></label>
+                </div>
+                <span class="custom-name">Manuel Stephens</span>
               </td>
-              <td>Donec facili.</td>
+              <td class="orders-product-list">Donec facili.</td>
               <td>$2,200</td>
               <td>
                 <p>2018/6/8</p>
@@ -165,15 +254,15 @@
                 <p>20:23</p>
               </td>
               <td>531 Orval Mission Suite 134</td>
-              <td class="order-status">
-                <div class="change">
-                  <button class="orderbtn orange">SHIPPING <i class="fas fa-sort-down"></i></button>
-                  <ul class="change-status">
-                    <li>Paid</li>
-                    <li>Shipping</li>
-                    <li>Done</li>
-                    <li>Unpaid</li>
-                  </ul>
+              <td class="orders-status">
+                <div class="orders-status-select">
+                  <button class="orders-status-trigger">PAID</button>
+                  <div class="orders-status-options">
+                    <span class="orders-status-option" data-value="Paid">Paid</span>
+                    <span class="orders-status-option" data-value="Unpaid">Unpaid</span>
+                    <span class="orders-status-option" data-value="Shipping">Shipping</span>
+                    <span class="orders-status-option" data-value="Done">Done</span>
+                  </div>
                 </div>
               </td>
             </tr>
@@ -182,6 +271,7 @@
       </div>
     </div>
   </div>
+  <script src="js/orders.js"></script>
 </body>
 
 </html>

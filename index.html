@@ -8,9 +8,10 @@
   <title>HOME - Shoptime</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
-  <link rel="stylesheet" href="css/all.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
     crossorigin="anonymous">
+  <link rel="stylesheet" href="css/all.css">
+  <script src="js/jquery-3.3.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 </head>
 
@@ -31,28 +32,26 @@
     </div>
     <div class="content">
       <div class="container">
-        <div class="overview-title">
+        <div class="overview-top">
           <h2>OVERVIEW</h2>
-          <div class="period">
-            <div class="date">
+          <div class="change-data">
+            <div class="change-data-date">
               <span class="date-from">2018/6/6</span>
               <i class="fas fa-caret-right"></i>
               <span class="date-to">2018/6/13</span>
             </div>
-            <div class="change">
-              <span>Weekly</span>
-              <i class="fas fa-caret-down"></i>
-              <ul class="change-period">
-                <li>Daily</li>
-                <li class="active">Weekly</li>
-                <li>Monthly</li>
-                <li>Yearly</li>
-                <li>Custom</li>
-              </ul>
+            <div class="change-data-period">
+              <select name="period" id="period" class="period-select" placeholder="Weekly">
+                <option value="Daily">Daily</option>
+                <option value="Weekly">Weekly</option>
+                <option value="Monthly">Monthly</option>
+                <option value="Yearly">Yearly</option>
+                <option value="Custom">Custom</option>
+              </select>
             </div>
           </div>
         </div>
-        <ul class="income">
+        <ul class="overview-list">
           <li>
             <div class="title">
               <i class="fas fa-hand-holding-usd"></i>TOTAL REVENUE
@@ -72,11 +71,11 @@
             <div class="amount three">41,880</div>
           </li>
         </ul>
-        <div class="activity">
+        <div class="activity-chart">
           <h2>Activity</h2>
           <canvas id="myChart"></canvas>
         </div>
-        <div class="website">
+        <div class="website-block">
           <h2>Transaction Website</h2>
           <ul class="website-list">
             <li>
@@ -106,9 +105,9 @@
             </li>
           </ul>
         </div>
-        <div class="latest">
+        <div class="latest-orders-block">
           <h2>Latest Orders</h2>
-          <ul class="order-list">
+          <ul class="latest-orders-list">
             <li>
               <div class="pic">
                 <img src="https://fakeimg.pl/100x100/">

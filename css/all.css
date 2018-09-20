@@ -92,18 +92,14 @@ li {
 }
 
 .gray {
-  background: #9B9B9B;
-  border: 1px solid #9B9B9B;
+  color: #9B9B9B;
 }
 
-*,
 body {
   font-family: "Helvetica", "Microsoft JhengHei", sans-serif;
   font-size: 16px;
-}
-
-button:focus {
-  outline: none;
+  height: 100%;
+  background: #F2F2F2;
 }
 
 h1 {
@@ -125,9 +121,48 @@ h4 {
   font-weight: bold;
 }
 
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+}
+
+input[type="checkbox"]:not(:checked) + label, input[type="checkbox"]:checked + label {
+  cursor: pointer;
+}
+
+input[type="checkbox"]:not(:checked) + label:before, input[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+}
+
+input[type="checkbox"]:checked + label:before {
+  position: absolute;
+  top: 0;
+  left: 1px;
+  content: '\f00c';
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+button {
+  font-size: 16px;
+  border-radius: 4px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
 .wrap {
   width: 100%;
-  background: #F2F2F2;
 }
 
 .container {
@@ -139,6 +174,11 @@ h4 {
   display: block;
   clear: both;
   content: "";
+}
+
+.content {
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .header {
@@ -191,98 +231,115 @@ h4 {
   font-weight: bold;
 }
 
-.content {
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-
-.overview-title {
+.overview-top {
   height: 30px;
   line-height: 30px;
 }
 
-.overview-title::after {
+.overview-top::after {
   display: block;
   clear: both;
   content: "";
 }
 
-.overview-title h2 {
+.overview-top h2 {
   float: left;
   margin-left: 42px;
 }
 
-.overview-title .period {
+.change-data {
   float: right;
   margin-right: 42px;
 }
 
-.overview-title .period::after {
+.change-data::after {
   display: block;
   clear: both;
   content: "";
 }
 
-.overview-title .period span {
+.change-data .change-data-date {
+  float: left;
+  margin-right: 20px;
   color: #9B9B9B;
 }
 
-.overview-title .period .date {
-  float: left;
-  margin-right: 20px;
-}
-
-.overview-title .period .date i {
+.change-data .change-data-date i {
   margin: 0 4px;
+  color: #000;
 }
 
-.overview-title .period .change {
+.change-data .change-data-period {
   float: left;
-  position: relative;
-  cursor: pointer;
 }
 
-.overview-title .period .change i {
-  margin-left: 4px;
-}
-
-.overview-title .period .change:hover .change-period {
-  display: block;
-}
-
-.overview-title .period .change .change-period {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  color: #000000;
-  background: #ffffff;
-  -webkit-box-shadow: 1px 2px 10px 0 #9B9B9B;
-          box-shadow: 1px 2px 10px 0 #9B9B9B;
-  border-radius: 2px;
-  width: 125px;
-  text-align: center;
+.change-data .change-data-period select {
   display: none;
 }
 
-.overview-title .period .change .change-period li {
-  height: 35px;
-  line-height: 35px;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+.change-data .change-data-period .period-select {
+  position: relative;
+}
+
+.change-data .change-data-period .period-select.opened .custom-period-options {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  pointer-events: all;
+}
+
+.change-data .change-data-period .period-select .custom-period-trigger {
+  display: block;
+  width: 70px;
+  color: #9B9B9B;
   cursor: pointer;
 }
 
-.overview-title .period .change .change-period li:hover, .overview-title .period .change .change-period li.active {
-  color: #fff;
-  background: #000000;
+.change-data .change-data-period .period-select .custom-period-trigger:after {
+  content: '\f0d7';
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  right: 0;
+  color: #000;
 }
 
-.income {
+.change-data .change-data-period .period-select .custom-period-options {
+  position: absolute;
+  right: 0;
+  top: 30px;
+  background: #fff;
+  -webkit-box-shadow: 1px 2px 10px 0 #9B9B9B;
+          box-shadow: 1px 2px 10px 0 #9B9B9B;
+  border-radius: 2px;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-15px);
+          transform: translateY(-15px);
+  pointer-events: none;
+}
+
+.change-data .change-data-period .period-select .custom-period-options .custom-period-option {
+  text-align: center;
+  display: block;
+  padding: 8px 45px;
+  cursor: pointer;
+}
+
+.change-data .change-data-period .period-select .custom-period-options .custom-period-option:hover {
+  background: #000;
+  color: #fff;
+}
+
+.overview-list {
   margin: 20px 42px;
   text-align: center;
 }
 
-.income li {
+.overview-list li {
   display: inline-block;
   width: 32%;
   max-height: 138px;
@@ -294,34 +351,34 @@ h4 {
   padding: 30px 0;
 }
 
-.income li:nth-child(2) {
+.overview-list li:nth-child(2) {
   margin: 0 2%;
 }
 
-.income li .title i {
+.overview-list li .title i {
   margin-right: 8px;
   font-size: 20px;
 }
 
-.income li .amount {
+.overview-list li .amount {
   font-size: 36px;
   margin-top: 16px;
   font-weight: bold;
 }
 
-.income li .amount.one {
+.overview-list li .amount.one {
   color: #7ED321;
 }
 
-.income li .amount.two {
+.overview-list li .amount.two {
   color: #D0021B;
 }
 
-.income li .amount.three {
+.overview-list li .amount.three {
   color: #4A90E2;
 }
 
-.activity {
+.activity-chart {
   margin: 0 42px 20px 42px;
   height: auto;
   padding: 30px 40px;
@@ -331,7 +388,7 @@ h4 {
   border-radius: 3px;
 }
 
-.website {
+.website-block {
   float: left;
   margin-left: 42px;
   width: 45%;
@@ -344,61 +401,61 @@ h4 {
   padding: 30px 40px;
 }
 
-.website .website-list {
+.website-block .website-list {
   margin-top: 6px;
 }
 
-.website .website-list li {
+.website-block .website-list li {
   border-bottom: 1px solid #EBEBEB;
   padding: 24px 0;
 }
 
-.website .website-list li:last-child {
+.website-block .website-list li:last-child {
   border: none;
 }
 
-.website .website-list li span {
+.website-block .website-list li span {
   display: inline-block;
   vertical-align: middle;
 }
 
-.website .website-list li span.site {
+.website-block .website-list li span.site {
   color: #9B9B9B;
   width: 145px;
 }
 
-.website .website-list li span.amount {
+.website-block .website-list li span.amount {
   font-weight: bold;
   text-align: right;
   width: 60px;
   font-size: 20px;
 }
 
-.website .website-list li span.up {
+.website-block .website-list li span.up {
   color: #7ED321;
   width: 60px;
   margin-left: 16px;
   cursor: pointer;
 }
 
-.website .website-list li span.down {
+.website-block .website-list li span.down {
   color: #D0021B;
   width: 60px;
   margin-left: 16px;
   cursor: pointer;
 }
 
-.website .website-list li i {
+.website-block .website-list li i {
   display: inline-block;
   vertical-align: middle;
 }
 
-.website .website-list li i.big {
+.website-block .website-list li i.big {
   font-size: 40px;
   width: 55px;
 }
 
-.latest {
+.latest-orders-block {
   float: right;
   margin-right: 42px;
   width: 45%;
@@ -410,51 +467,51 @@ h4 {
   padding: 30px 40px;
 }
 
-.latest .order-list {
+.latest-orders-block .latest-orders-list {
   margin-top: 22px;
 }
 
-.latest .order-list li {
+.latest-orders-block .latest-orders-list li {
   position: relative;
   border-bottom: 1px solid #EBEBEB;
   padding: 8px 0;
 }
 
-.latest .order-list li::after {
+.latest-orders-block .latest-orders-list li::after {
   display: block;
   clear: both;
   content: "";
 }
 
-.latest .order-list li:last-child {
+.latest-orders-block .latest-orders-list li:last-child {
   border: none;
 }
 
-.latest .order-list li .pic {
+.latest-orders-block .latest-orders-list li .pic {
   float: left;
   margin-right: 20px;
 }
 
-.latest .order-list li .info {
+.latest-orders-block .latest-orders-list li .info {
   float: left;
 }
 
-.latest .order-list li .info h3 {
+.latest-orders-block .latest-orders-list li .info h3 {
   margin-top: 10px;
 }
 
-.latest .order-list li .info span {
+.latest-orders-block .latest-orders-list li .info span {
   display: block;
-  margin: 8px 0;
+  margin: 4px 0;
   color: #9B9B9B;
 }
 
-.latest .order-list li .info span i {
+.latest-orders-block .latest-orders-list li .info span i {
   width: 16px;
   text-align: center;
 }
 
-.latest .order-list li .total {
+.latest-orders-block .latest-orders-list li .total {
   position: absolute;
   bottom: 30px;
   right: 0;
@@ -463,47 +520,149 @@ h4 {
   line-height: 1.5;
 }
 
-.latest .order-list li .total .amount {
+.latest-orders-block .latest-orders-list li .total .amount {
   font-size: 20px;
   font-weight: bold;
 }
 
-.order {
+.orders-view {
   background: #F2F2F2;
   padding-top: 30px;
   padding-bottom: 30px;
 }
 
-.order-top {
+.orders-view-top {
   margin: 0 42px;
 }
 
-.order-top::after {
+.orders-view-top::after {
   display: block;
   clear: both;
   content: "";
 }
 
-.order-top .check-product {
+.orders-view-top .check-product {
   float: left;
   position: relative;
 }
 
-.order-top .check-product > i {
-  position: absolute;
-  top: -2px;
-  right: -14px;
+.orders-view-top .check-product input[type="checkbox"]:not(:checked) + label:before, .orders-view-top .check-product input[type="checkbox"]:checked + label:before {
+  border: 1px solid #000;
 }
 
-.order-top .edit {
-  float: right;
+.orders-view-top .check-product input[type="checkbox"]:checked + label:before {
+  background: #000;
+  color: #fff;
 }
 
-.order-top .edit .editbtn {
-  background: none;
-  border: none;
+.product-event-select {
+  float: left;
+  position: relative;
+  -webkit-transform: translateX(20px);
+          transform: translateX(20px);
+  width: 125px;
+  z-index: 10;
+}
+
+.product-event-select.opened .prodoct-event-options {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  pointer-events: all;
+}
+
+.product-event-select .prodoct-event-trigger {
+  display: block;
   cursor: pointer;
+}
+
+.product-event-select .prodoct-event-trigger:before {
+  content: '\f0d7';
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  color: #000;
+  top: 0;
+  left: 3px;
+}
+
+.product-event-select .prodoct-event-options {
+  position: absolute;
+  left: 0;
+  top: 20px;
+  background: #fff;
+  -webkit-box-shadow: 1px 2px 10px 0 #9B9B9B;
+          box-shadow: 1px 2px 10px 0 #9B9B9B;
+  border-radius: 2px;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  opacity: 0;
+  -webkit-transform: translateY(-15px);
+          transform: translateY(-15px);
+  pointer-events: none;
+}
+
+.product-event-select .prodoct-event-options .product-event-option {
+  display: block;
+  padding: 10px 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.product-event-select .prodoct-event-options .product-event-option:hover {
+  background: #000;
+  color: #fff;
+}
+
+.edit-section-select {
+  float: right;
+  position: relative;
+}
+
+.edit-section-select.opened .edit-section-options {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  pointer-events: all;
+}
+
+.edit-section-select .edit-section-trigger {
+  color: #000;
   font-weight: bold;
+  background: none;
+}
+
+.edit-section-select .edit-section-options {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background: #fff;
+  -webkit-box-shadow: 1px 2px 10px 0 #9B9B9B;
+          box-shadow: 1px 2px 10px 0 #9B9B9B;
+  border-radius: 2px;
+  z-index: 11;
+  cursor: pointer;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  opacity: 0;
+  -webkit-transform: translateY(-15px);
+          transform: translateY(-15px);
+  pointer-events: none;
+}
+
+.edit-section-select .edit-section-options .edit-section-option {
+  display: block;
+  padding: 12px 20px;
+  width: 150px;
+}
+
+.edit-section-select .edit-section-options .edit-section-option:hover {
+  background: #000;
+  color: #fff;
+}
+
+.check-section {
+  position: relative;
 }
 
 .order-list {
@@ -511,9 +670,11 @@ h4 {
   margin: 15px auto;
   border-radius: 2px;
   line-height: 1.5;
+  font-size: 14px;
 }
 
 .order-list thead {
+  font-size: 16px;
   background: #FFFFFF;
   font-weight: bold;
   text-align: left;
@@ -521,10 +682,6 @@ h4 {
 
 .order-list thead tr th {
   padding: 15px 20px;
-}
-
-.order-list tbody {
-  font-size: 14px;
 }
 
 .order-list tbody tr:nth-child(2n) {
@@ -535,83 +692,106 @@ h4 {
   padding: 20px;
 }
 
-.order-status .change {
-  display: inline-block;
+.orders-customer .check-per-product {
   position: relative;
-  height: 40px;
 }
 
-.order-status .change:hover .change-status {
-  display: block;
-}
-
-.order-status .change .orderbtn {
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.order-status .change .change-status {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 10;
+.orders-customer .check-per-product input[type="checkbox"]:not(:checked) + label:before, .orders-customer .check-per-product input[type="checkbox"]:checked + label:before {
   background: #fff;
-  color: #000;
   text-align: center;
+  line-height: 16px;
+}
+
+.orders-customer .check-per-product input[type="checkbox"]:checked + label:before {
+  background: #9B9B9B;
+  color: #fff;
+}
+
+.orders-customer .custom-name {
+  display: block;
+  -webkit-transform: translateX(22px);
+          transform: translateX(22px);
+}
+
+.orders-product-list li {
+  font-size: 14px;
+  border-bottom: 1px solid #FFFFFF;
+  line-height: 2;
+}
+
+.orders-product-list li::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+.orders-product-list li:last-child {
+  border-bottom: none;
+}
+
+.orders-product-list li .num {
+  float: right;
+}
+
+.orders-status .orders-status-select {
+  position: relative;
+}
+
+.orders-status .orders-status-select.opened .orders-status-options {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  pointer-events: all;
+}
+
+.orders-status .orders-status-select .orders-status-trigger {
+  position: relative;
+  background: #7ED321;
+  text-transform: uppercase;
+  padding: 8px 28px 8px 18px;
+}
+
+.orders-status .orders-status-select .orders-status-trigger:after {
+  content: '\f0d7';
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  right: 15px;
+}
+
+.orders-status .orders-status-select .orders-status-options {
+  z-index: 10;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background: #fff;
   -webkit-box-shadow: 1px 2px 10px 0 #9B9B9B;
           box-shadow: 1px 2px 10px 0 #9B9B9B;
   border-radius: 2px;
   cursor: pointer;
-  display: none;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  opacity: 0;
+  -webkit-transform: translateY(-15px);
+          transform: translateY(-15px);
+  pointer-events: none;
 }
 
-.order-status .change .change-status li {
-  padding: 8px 16px;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+.orders-status .orders-status-select .orders-status-options .orders-status-option {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px 30px;
 }
 
-.order-status .change .change-status li:hover {
-  color: #fff;
+.orders-status .orders-status-select .orders-status-options .orders-status-option:hover {
   background: #000;
+  color: #fff;
 }
 
 .product {
   padding-top: 30px;
   padding-bottom: 45px;
-}
-
-.checkbox input[type="checkbox"] {
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
-}
-
-.checkbox input[type="checkbox"]:checked + span {
-  background: #000;
-}
-
-.checkbox input[type="checkbox"]:checked + span i {
-  display: inline-block;
-  color: #fff;
-}
-
-.checkbox span {
-  position: relative;
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  border: 1px solid #000;
-  border-radius: 2px;
-  text-align: center;
-}
-
-.checkbox span i {
-  display: none;
-  font-size: 13px;
 }
 
 .product-top {

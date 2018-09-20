@@ -5,6 +5,8 @@
 $font-family: "Helvetica", "Microsoft JhengHei", sans-serif;
 $font-size: 16px;
 
+$distancX: 42px;
+
 $bg-color: #F2F2F2;
 $green: #7ED321;
 $red: #D0021B;
@@ -28,20 +30,15 @@ $gray: #9B9B9B;
 }
 
 .gray {
-  background: $gray;
-  border: 1px solid $gray;
+  color: $gray;
 }
 
-$distancX: 42px;
 
-*,
 body {
   font-family: $font-family;
   font-size: $font-size;
-}
-
-button:focus {
-  outline: none;
+  height: 100%;
+  background: $bg-color;
 }
 
 h1 {
@@ -63,9 +60,51 @@ h4 {
   font-weight: bold;
 }
 
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  &:not(:checked),
+  &:checked {
+    + label {
+      cursor: pointer;
+      &:before {
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border-radius: 2px;
+      }
+    }
+  }
+  &:checked {
+    + label {
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 1px;
+        content: '\f00c';
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+      }
+    }
+  }
+}
+
+button {
+  font-size: $font-size;
+  border-radius: 4px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  &:focus {
+  outline: none;
+  }
+}
+
 .wrap {
   width: 100%;
-  background: $bg-color;
 }
 
 .container {
@@ -74,7 +113,13 @@ h4 {
   @include clearfix;
 }
 
-// 連結
+.content {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+// INDEX
+
 .header {
   background: #000;
   color: #fff;
@@ -115,13 +160,7 @@ h4 {
   }
 }
 
-.content {
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-
-// 總覽
-.overview-title {
+.overview-top {
   height: 30px;
   line-height: 30px;
   @include clearfix;
@@ -129,52 +168,73 @@ h4 {
     float: left;
     margin-left: $distancX;
   }
-  .period {
-    float: right;
-    margin-right: $distancX;
-    @include clearfix;
-    span {
-      color: #9B9B9B;
+}
+
+// 更改圖表區間
+.change-data {
+  float: right;
+  margin-right: $distancX;
+  @include clearfix;
+  // 日期
+  .change-data-date {
+    float: left;
+    margin-right: 20px;
+    color: #9B9B9B;
+    i {
+      margin: 0 4px;
+      color: #000;
     }
-    .date {
-      float: left;
-      margin-right: 20px;
-      i {
-        margin: 0 4px;
-      }
+  }
+  // 週期
+  .change-data-period {
+    float: left;
+    select {
+      display: none;
     }
-    .change {
-      float: left;
+    .period-select {
       position: relative;
-      cursor: pointer;
-      i {
-        margin-left: 4px;
-      }
-      &:hover {
-        .change-period {
-          display: block;
+      &.opened {
+        .custom-period-options {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+          pointer-events: all;
         }
       }
-      .change-period {
+      .custom-period-trigger {
+        display: block;
+        width: 70px;
+        color: #9B9B9B;
+        cursor: pointer;
+        &:after {
+          content: '\f0d7';
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+          position: absolute;
+          right: 0;
+          color: #000;
+        }
+      }
+      .custom-period-options {
         position: absolute;
-        top: 100%;
         right: 0;
-        color: #000000;
-        background: #ffffff;
+        top: 30px;
+        background: #fff;
         box-shadow: 1px 2px 10px 0 #9B9B9B;
-        border-radius: 2px;
-        width: 125px;
-        text-align: center;
-        display: none;
-        li {
-          height: 35px;
-          line-height: 35px;
-          transition: all 0.3s;
+        border-radius: 2px; 
+        transition: all .3s ease-in-out;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-15px);
+        pointer-events: none;
+        .custom-period-option {
+          text-align: center;
+          display: block;
+          padding: 8px 45px;
           cursor: pointer;
-          &:hover,
-          &.active {
+          &:hover {
+            background: #000;
             color: #fff;
-            background: #000000;
           }
         }
       }
@@ -182,8 +242,7 @@ h4 {
   }
 }
 
-// 收支 
-.income {
+.overview-list {
   margin: 20px $distancX;
   text-align: center;
   li {
@@ -222,7 +281,7 @@ h4 {
 }
 
 // 圖表
-.activity {
+.activity-chart {
   margin: 0 $distancX 20px $distancX;
   height: auto;
   padding: 30px 40px;
@@ -231,8 +290,8 @@ h4 {
   border-radius: 3px; 
 }
 
-// 平台
-.website {
+// 購買平台
+.website-block {
   float: left;
   margin-left: $distancX;
   width: 45%;
@@ -288,8 +347,8 @@ h4 {
   }
 }
 
-// 訂單
-.latest {
+// 最新訂單
+.latest-orders-block {
   float: right;
   margin-right: $distancX;
   width: 45%;
@@ -298,7 +357,7 @@ h4 {
   box-shadow: 0 0 10px 5px #EBEBEB;
   border-radius: 3px;
   padding: 30px 40px;
-  .order-list {
+  .latest-orders-list {
     margin-top: 22px;
     li {
       position: relative;
@@ -319,7 +378,7 @@ h4 {
         }
         span {
           display: block;
-          margin: 8px 0;
+          margin: 4px 0;
           color: #9B9B9B;
           i {
             width: 16px;
@@ -343,43 +402,145 @@ h4 {
   }
 }
 
-// order
-
-.order {
+// ORDERS
+.orders-view {
   background: #F2F2F2;
   padding-top: 30px;
   padding-bottom: 30px;
 }
 
-.order-top {
+.orders-view-top {
   margin: 0 $distancX;
   @include clearfix;
   .check-product {
     float: left;
     position: relative;
-    > i {
-      position: absolute;
-      top: -2px;
-      right: -14px;
-    }
-  }
-  .edit {
-    float: right;
-    .editbtn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
+    input[type="checkbox"] {
+      &:not(:checked),
+      &:checked {
+        + label {
+          &:before {
+            border: 1px solid #000;
+          }
+        }
+      }
+      &:checked {
+        + label {
+          &:before {
+            background: #000;
+            color: #fff;
+          }
+        }
+      }
     }
   }
 }
 
+// 多筆訂單狀態選單
+.product-event-select {
+  float: left;
+  position: relative;
+  transform: translateX(20px);
+  width: 125px;
+  z-index: 10;
+  &.opened {
+    .prodoct-event-options {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+  }
+  .prodoct-event-trigger {
+    display: block;
+    cursor: pointer;
+    &:before {
+      content: '\f0d7';
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      position: absolute;
+      color: #000;
+      top: 0;
+      left: 3px;
+    }
+  }
+  .prodoct-event-options {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    background: #fff;
+    box-shadow: 1px 2px 10px 0 #9B9B9B;
+    border-radius: 2px;
+    transition: all .3s ease-in-out;
+    opacity: 0;
+    transform: translateY(-15px);
+    pointer-events: none;
+    .product-event-option {
+      display: block;
+      padding: 10px 20px;
+      text-align: center;
+      cursor: pointer;
+      &:hover {
+        background: #000;
+        color: #fff;
+      }
+    }
+  }
+}
+
+// 選擇訂單表格顯示欄位
+.edit-section-select {
+  float: right;
+  position: relative;
+  &.opened {
+    .edit-section-options {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+  }
+  .edit-section-trigger {
+    color: #000;
+    font-weight: bold;
+    background: none;
+  }
+  .edit-section-options {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background: #fff;
+    box-shadow: 1px 2px 10px 0 $gray;
+    border-radius: 2px;
+    z-index: 11;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    opacity: 0;
+    transform: translateY(-15px);
+    pointer-events: none;
+    .edit-section-option {
+      display: block;
+      padding: 12px 20px;
+      width: 150px;
+      &:hover {
+        background: #000;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.check-section {
+  position: relative;
+}
+
+// 訂單表格
 .order-list {
   width: 94%;
   margin: 15px auto;
   border-radius: 2px;
   line-height: 1.5;
+  font-size: 14px;
   thead {
+    font-size: 16px;
     background: #FFFFFF;
     font-weight: bold;
     text-align: left;
@@ -390,7 +551,6 @@ h4 {
     }
   }
   tbody {
-    font-size: 14px;
     tr {
       &:nth-child(2n) {
         background: #EBEBEB;
@@ -402,82 +562,109 @@ h4 {
   }
 }
 
-.order-status {
-  .change {
-    display: inline-block;
+// 訂購者姓名
+.orders-customer {
+  .check-per-product {
     position: relative;
-    height: 40px;
-    &:hover {
-      .change-status {
-        display: block;
+    input[type="checkbox"] {
+      &:not(:checked),
+      &:checked {
+        + label {
+          &:before {
+            background: #fff;
+            text-align: center;
+            line-height: 16px;
+          }
+        }
+      }
+      &:checked {
+        + label {
+          &:before {
+            background: $gray;
+            color: #fff;
+          }
+        }
       }
     }
-    .orderbtn {
-      color: #fff;
-      padding: 8px 16px;
-      border-radius: 4px;
-      cursor: pointer;
+  }
+  .custom-name {
+    display: block;
+    transform: translateX(22px);
+  }
+}
+
+// 購買商品列表
+.orders-product-list {
+  li {
+    font-size: 14px;
+    border-bottom: 1px solid #FFFFFF;
+    line-height: 2;
+    @include clearfix;
+    &:last-child {
+      border-bottom: none;
+    }
+    .num {
+      float: right;
+    }
+  }
+}
+
+// 訂單狀態
+.orders-status {
+  .orders-status-select {
+    position: relative;
+    &.opened {
+      .orders-status-options {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: all;
       }
-    .change-status {
+    }
+    .orders-status-trigger {
+      position: relative;
+      background: $green;
+      text-transform: uppercase;
+      padding: 8px 28px 8px 18px;
+      &:after {
+      content: '\f0d7';
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
       position: absolute;
-      top: 100%;
-      left: 0;
+      right: 15px;
+      }
+    }
+    .orders-status-options {
       z-index: 10;
+      position: absolute;
+      top: 40px;
+      left: 0;
       background: #fff;
-      color: #000;
-      text-align: center;
-      box-shadow: 1px 2px 10px 0 #9B9B9B;
+      box-shadow: 1px 2px 10px 0 $gray;
       border-radius: 2px;
       cursor: pointer;
-      display: none;
-      li {
-        padding: 8px 16px;
-        transition: all 0.3s;
+      transition: all .3s ease-in-out;
+      opacity: 0;
+      transform: translateY(-15px);
+      pointer-events: none;
+      .orders-status-option {
+        display: block;
+        text-align: center;
+        font-size: $font-size;
+        padding: 10px 30px;
         &:hover {
-          color: #fff;
           background: #000;
+          color: #fff;
         }
       }
     }
   }
 }
 
-// product
+// PRODUCT
 
 .product {
   padding-top: 30px;
   padding-bottom: 45px;
-}
-
-.checkbox {
-  input[type="checkbox"] {
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    &:checked {
-      + span {
-        background: #000;
-        i {
-          display: inline-block;
-          color: #fff;
-        }
-      }
-    }
-  }
-  span {
-    position: relative;
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    border: 1px solid #000;
-    border-radius: 2px;
-    text-align: center;
-    i {
-      display: none;
-      font-size: 13px;
-    }
-  }
 }
 
 .product-top {

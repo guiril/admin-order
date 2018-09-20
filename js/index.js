@@ -1,9 +1,47 @@
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+});
+
+$(document).ready(function () {
+  // 運算週期選單
+  $('.period-select').each(function () {
+    var classes = $(this).attr('class');
+    var template = '<div class="' + classes + '">';
+
+    template += '<span class="custom-period-trigger">' + $(this).attr('placeholder') + '</span>';
+    template += '<div class="custom-period-options">';
+
+    $(this).find('option').each(function () {
+      template += '<span class="custom-period-option" data-value="' + $(this).attr('value') + '">' + $(this).html() + '</span>';
+    });
+
+    template += '</div></div>';
+
+    $(this).after(template);
+  });
+  // 點選加入class
+  $('.custom-period-trigger').on('click', function () {
+    $('html').one('click', function () {
+      $('.period-select').removeClass('opened');
+    });
+    $(this).parents('.period-select').toggleClass('opened');
+    event.stopPropagation();
+  });
+  // 改變選單文字
+  $('.custom-period-option').on('click', function () {
+    // $(this).parents('.change-data-period').find('select').val($(this).data('value'));
+    $(this).parents('.custom-period-options').find('.custom-period-option').removeClass("selection");
+    $(this).addClass('selection');
+    $(this).parents('.period-select').removeClass('opened');
+    $(this).parents('.period-select').find('.custom-period-trigger').text($(this).text());
+  });
+
+});
+
+// 訂單圖表
 var ctx = document.getElementById('myChart').getContext('2d');
 var chart = new Chart(ctx, {
-  // The type of chart we want to create
   type: 'line',
-
-  // The data for our dataset
   data: {
     labels: ["6 JUN", "7 JUN", "8 JUN", "9 JUN", "10 JUN", "11 JUN", "12 JUN", "13 JUN"],
     datasets: [{
@@ -45,7 +83,3 @@ var chart = new Chart(ctx, {
     }
   }
 });
-
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
