@@ -1,11 +1,13 @@
+var checkOrders = document.querySelector('#check-all-orders');
+
 $(document).ready(function () {
 
   // 單筆訂單狀態按鈕
-  $('.prodoct-event-trigger').click(function () {
+  $('.orders-event-trigger').click(function () {
     $('html').one('click', function () {
-      $('.product-event-select').removeClass('opened');
+      $('.orders-event-select').removeClass('opened');
     });
-    $(this).parents('.product-event-select').toggleClass('opened');
+    $(this).parents('.orders-event-select').toggleClass('opened');
     event.stopPropagation();
   });
 
@@ -52,8 +54,6 @@ $(document).ready(function () {
 
 });
 
-
-var checkOrders = document.querySelector('#check-orders');
 
 checkOrders.addEventListener('click', function () {
   let item = document.getElementsByName('orders');

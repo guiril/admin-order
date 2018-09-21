@@ -3,12 +3,12 @@
 
 <head>
   <meta charset="UTF-8">
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>PRODUCT - Shoptime</title>
   <link rel="stylesheet" href="css/all.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
     crossorigin="anonymous">
+  <script src="js/jquery-3.3.1.min.js"></script>
 </head>
 
 <body>
@@ -30,37 +30,35 @@
       <div class="container">
         <div class="product-top">
           <div class="check-product">
-            <label class="checkbox">
-              <input type="checkbox">
-              <span><i class="fas fa-check"></i></span>
-            </label>
+            <input type="checkbox" id="check-all-products">
+            <label class="checkbox" for="check-all-products"></label>
             <i class="fas fa-sort-down"></i>
           </div>
           <div class="add-product">
             <button class="addbtn" id="addNewProduct">ADD NEW PRODUCT <i class="fas fa-plus"></i></button>
           </div>
         </div>
-        <table class="product-list">
+        <table class="products-list">
           <thead>
             <tr>
-              <th width="250">Product</th>
-              <th width="120">Original</th>
-              <th width="120">Discount</th>
-              <th width="90">Size</th>
-              <th width="100">Color</th>
-              <th width="130">Inventory</th>
-              <th width="150">Status</th>
+              <th width="230">Product</th>
+              <th width="115">Original</th>
+              <th width="115">Discount</th>
+              <th width="88">Size</th>
+              <th width="98">Color</th>
+              <th width="125">Inventory</th>
+              <th width="186">Status</th>
             </tr>
           </thead>
           <tbody>
+            <!-- 01 -->
             <tr>
-              <td class="table-product">
-                <label class="checkbox">
-                  <input type="checkbox">
-                  <span><i class="fas fa-check"></i></span>
-                </label>
-                <div class="pic"><img src="https://picsum.photos/50"></div>
-                <p>Mauris non tem.</p>
+              <td class="products-product">
+                <div class="check-per-product">
+                  <input type="checkbox" id="check-product1" name="products">
+                  <label class="checkbox" for="check-product1"></label>
+                </div>
+                <div class="picText"><img src="https://picsum.photos/50"><span>Mauris non tem.</span></div>
               </td>
               <td>$3,200</td>
               <td>$2,800</td>
@@ -71,24 +69,24 @@
                   <li><span class="size">S</span><span class="color">Gray<br>Black</span><span class="inventory">15<br>20</span></li>
                 </ul>
               </td>
-              <td class="table-status">
-                <div class="change">
-                  <button class="publishbtn">PUBLISHED <i class="fas fa-sort-down"></i></button>
-                  <ul class="change-status">
-                    <li>PUBLISHED</li>
-                    <li>UNPUBLISHED</li>
-                  </ul>
+              <td class="products-status">
+                <div class="products-status-select">
+                  <button class="products-status-trigger">PUBLISHED</button>
+                  <div class="products-status-options">
+                    <span class="products-status-option">PUBLISHED</span>
+                    <span class="products-status-option">UNPUBLISHED</span>
+                  </div>
                 </div>
               </td>
             </tr>
+            <!-- 02 -->
             <tr>
-              <td class="table-product">
-                <label class="checkbox">
-                  <input type="checkbox">
-                  <span><i class="fas fa-check"></i></span>
-                </label>
-                <div class="pic"><img src="https://picsum.photos/50"></div>
-                <p>Mauris non tem.</p>
+              <td class="products-product">
+                <div class="check-per-product">
+                  <input type="checkbox" id="check-product2" name="products">
+                  <label class="checkbox" for="check-product2"></label>
+                </div>
+                <div class="picText"><img src="https://picsum.photos/50"><span>Mauris non tem.</span></div>
               </td>
               <td>$3,200</td>
               <td>$2,800</td>
@@ -99,24 +97,24 @@
                   <li><span class="size">S</span><span class="color">Gray<br>Black</span><span class="inventory">15<br>20</span></li>
                 </ul>
               </td>
-              <td class="table-status">
-                <div class="change">
-                  <button class="publishbtn">PUBLISHED <i class="fas fa-sort-down"></i></button>
-                  <ul class="change-status">
-                    <li>PUBLISHED</li>
-                    <li>UNPUBLISHED</li>
-                  </ul>
+              <td class="products-status">
+                <div class="products-status-select">
+                  <button class="products-status-trigger">PUBLISHED</button>
+                  <div class="products-status-options">
+                    <span class="products-status-option">PUBLISHED</span>
+                    <span class="products-status-option">UNPUBLISHED</span>
+                  </div>
                 </div>
               </td>
             </tr>
+            <!-- 03 -->
             <tr>
-              <td class="table-product">
-                <label class="checkbox">
-                  <input type="checkbox">
-                  <span><i class="fas fa-check"></i></span>
-                </label>
-                <div class="pic"><img src="https://picsum.photos/50"></div>
-                <p>Mauris non tem.</p>
+              <td class="products-product">
+                <div class="check-per-product">
+                  <input type="checkbox" id="check-product3" name="products">
+                  <label class="checkbox" for="check-product3"></label>
+                </div>
+                <div class="picText"><img src="https://picsum.photos/50"><span>Mauris non tem.</span></div>
               </td>
               <td>$3,200</td>
               <td>$2,800</td>
@@ -127,24 +125,24 @@
                   <li><span class="size">S</span><span class="color">Gray<br>Black</span><span class="inventory">15<br>20</span></li>
                 </ul>
               </td>
-              <td class="table-status">
-                <div class="change">
-                  <button class="publishbtn un">UNPUBLISHED <i class="fas fa-sort-down"></i></button>
-                  <ul class="change-status">
-                    <li>PUBLISHED</li>
-                    <li>UNPUBLISHED</li>
-                  </ul>
+              <td class="products-status">
+                <div class="products-status-select">
+                  <button class="products-status-trigger">PUBLISHED</button>
+                  <div class="products-status-options">
+                    <span class="products-status-option">PUBLISHED</span>
+                    <span class="products-status-option">UNPUBLISHED</span>
+                  </div>
                 </div>
               </td>
             </tr>
+            <!-- 04 -->
             <tr>
-              <td class="table-product">
-                <label class="checkbox">
-                  <input type="checkbox">
-                  <span><i class="fas fa-check"></i></span>
-                </label>
-                <div class="pic"><img src="https://picsum.photos/50"></div>
-                <p>Mauris non tem.</p>
+              <td class="products-product">
+                <div class="check-per-product">
+                  <input type="checkbox" id="check-product4" name="products">
+                  <label class="checkbox" for="check-product4"></label>
+                </div>
+                <div class="picText"><img src="https://picsum.photos/50"><span>Mauris non tem.</span></div>
               </td>
               <td>$3,200</td>
               <td>$2,800</td>
@@ -155,13 +153,13 @@
                   <li><span class="size">S</span><span class="color">Gray<br>Black</span><span class="inventory">15<br>20</span></li>
                 </ul>
               </td>
-              <td class="table-status">
-                <div class="change">
-                  <button class="publishbtn un">UNPUBLISHED <i class="fas fa-sort-down"></i></button>
-                  <ul class="change-status">
-                    <li>PUBLISHED</li>
-                    <li>UNPUBLISHED</li>
-                  </ul>
+              <td class="products-status">
+                <div class="products-status-select">
+                  <button class="products-status-trigger">PUBLISHED</button>
+                  <div class="products-status-options">
+                    <span class="products-status-option">PUBLISHED</span>
+                    <span class="products-status-option">UNPUBLISHED</span>
+                  </div>
                 </div>
               </td>
             </tr>

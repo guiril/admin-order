@@ -150,7 +150,7 @@ input[type="checkbox"]:checked + label:before {
 }
 
 button {
-  font-size: 16px;
+  font-size: 14px;
   border-radius: 4px;
   color: #fff;
   border: none;
@@ -541,21 +541,21 @@ button:focus {
   content: "";
 }
 
-.orders-view-top .check-product {
+.orders-view-top .check-orders {
   float: left;
   position: relative;
 }
 
-.orders-view-top .check-product input[type="checkbox"]:not(:checked) + label:before, .orders-view-top .check-product input[type="checkbox"]:checked + label:before {
+.orders-view-top .check-orders input[type="checkbox"]:not(:checked) + label:before, .orders-view-top .check-orders input[type="checkbox"]:checked + label:before {
   border: 1px solid #000;
 }
 
-.orders-view-top .check-product input[type="checkbox"]:checked + label:before {
+.orders-view-top .check-orders input[type="checkbox"]:checked + label:before {
   background: #000;
   color: #fff;
 }
 
-.product-event-select {
+.orders-event-select {
   float: left;
   position: relative;
   -webkit-transform: translateX(20px);
@@ -564,19 +564,19 @@ button:focus {
   z-index: 10;
 }
 
-.product-event-select.opened .prodoct-event-options {
+.orders-event-select.opened .orders-event-options {
   opacity: 1;
   -webkit-transform: translateY(0);
           transform: translateY(0);
   pointer-events: all;
 }
 
-.product-event-select .prodoct-event-trigger {
+.orders-event-select .orders-event-trigger {
   display: block;
   cursor: pointer;
 }
 
-.product-event-select .prodoct-event-trigger:before {
+.orders-event-select .orders-event-trigger:before {
   content: '\f0d7';
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
@@ -586,7 +586,7 @@ button:focus {
   left: 3px;
 }
 
-.product-event-select .prodoct-event-options {
+.orders-event-select .orders-event-options {
   position: absolute;
   left: 0;
   top: 20px;
@@ -602,14 +602,14 @@ button:focus {
   pointer-events: none;
 }
 
-.product-event-select .prodoct-event-options .product-event-option {
+.orders-event-select .orders-event-options .orders-event-option {
   display: block;
   padding: 10px 20px;
   text-align: center;
   cursor: pointer;
 }
 
-.product-event-select .prodoct-event-options .product-event-option:hover {
+.orders-event-select .orders-event-options .orders-event-option:hover {
   background: #000;
   color: #fff;
 }
@@ -665,7 +665,7 @@ button:focus {
   position: relative;
 }
 
-.order-list {
+.orders-list {
   width: 94%;
   margin: 15px auto;
   border-radius: 2px;
@@ -673,41 +673,41 @@ button:focus {
   font-size: 14px;
 }
 
-.order-list thead {
+.orders-list thead {
   font-size: 16px;
   background: #FFFFFF;
   font-weight: bold;
   text-align: left;
 }
 
-.order-list thead tr th {
+.orders-list thead tr th {
   padding: 15px 20px;
 }
 
-.order-list tbody tr:nth-child(2n) {
+.orders-list tbody tr:nth-child(2n) {
   background: #EBEBEB;
 }
 
-.order-list tbody tr td {
+.orders-list tbody tr td {
   padding: 20px;
 }
 
-.orders-customer .check-per-product {
+.orders-customer .check-per-order {
   position: relative;
 }
 
-.orders-customer .check-per-product input[type="checkbox"]:not(:checked) + label:before, .orders-customer .check-per-product input[type="checkbox"]:checked + label:before {
+.orders-customer .check-per-order input[type="checkbox"]:not(:checked) + label:before, .orders-customer .check-per-order input[type="checkbox"]:checked + label:before {
   background: #fff;
   text-align: center;
   line-height: 16px;
 }
 
-.orders-customer .check-per-product input[type="checkbox"]:checked + label:before {
+.orders-customer .check-per-order input[type="checkbox"]:checked + label:before {
   background: #9B9B9B;
   color: #fff;
 }
 
-.orders-customer .custom-name {
+.orders-customer .customer-name {
   display: block;
   -webkit-transform: translateX(22px);
           transform: translateX(22px);
@@ -782,6 +782,7 @@ button:focus {
   text-align: center;
   font-size: 16px;
   padding: 10px 30px;
+  color: #000;
 }
 
 .orders-status .orders-status-select .orders-status-options .orders-status-option:hover {
@@ -808,13 +809,21 @@ button:focus {
 .product-top .check-product {
   float: left;
   position: relative;
-  margin-top: 17px;
 }
 
-.product-top .check-product > i {
+.product-top .check-product input[type="checkbox"]:not(:checked) + label:before, .product-top .check-product input[type="checkbox"]:checked + label:before {
+  border: 1px solid #000;
+}
+
+.product-top .check-product input[type="checkbox"]:checked + label:before {
+  background: #000;
+  color: #fff;
+}
+
+.product-top .check-product i {
   position: absolute;
-  top: -2px;
-  right: -14px;
+  left: 23px;
+  top: -3px;
 }
 
 .product-top .add-product {
@@ -832,46 +841,58 @@ button:focus {
   padding: 8px 16px;
 }
 
-.product-list {
+.products-list {
   width: 94%;
   margin: 15px auto;
   border-radius: 2px;
+  font-size: 14px;
 }
 
-.product-list thead {
+.products-list thead {
   background: #FFFFFF;
   font-weight: bold;
   text-align: left;
 }
 
-.product-list thead tr th {
+.products-list thead tr th {
   padding: 15px 20px;
 }
 
-.product-list tbody tr:nth-child(2n) {
+.products-list tbody tr:nth-child(2n) {
   background: #EBEBEB;
 }
 
-.product-list tbody tr td {
+.products-list tbody tr td {
   padding: 20px;
 }
 
-.table-product {
+.products-product .check-per-product {
   position: relative;
 }
 
-.table-product * {
-  display: inline-block;
+.products-product .check-per-product input[type="checkbox"] {
+  top: 17px;
+}
+
+.products-product .check-per-product input[type="checkbox"]:not(:checked) + label:before, .products-product .check-per-product input[type="checkbox"]:checked + label:before {
+  background: #fff;
+  text-align: center;
+  line-height: 16px;
+  top: 17px;
+}
+
+.products-product .check-per-product input[type="checkbox"]:checked + label:before {
+  background: #9B9B9B;
+  color: #fff;
+}
+
+.products-product .picText {
+  -webkit-transform: translateX(25px);
+          transform: translateX(25px);
+}
+
+.products-product .picText img {
   vertical-align: middle;
-}
-
-.table-product span {
-  background: #ffffff;
-  border: none;
-}
-
-.table-product .pic {
-  margin-left: 8px;
   margin-right: 8px;
 }
 
@@ -898,22 +919,80 @@ button:focus {
   width: 100px;
 }
 
-.table-status {
+.products-status .products-status-select {
   position: relative;
 }
 
-.table-status .change {
+.products-status .products-status-select.opened .products-status-options {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  pointer-events: all;
+}
+
+.products-status .products-status-select .products-status-trigger {
+  position: relative;
+  background: #7ED321;
+  text-transform: uppercase;
+  padding: 8px 28px 8px 18px;
+}
+
+.products-status .products-status-select .products-status-trigger:after {
+  content: '\f0d7';
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 14px;
+  position: absolute;
+  right: 15px;
+}
+
+.products-status .products-status-select .products-status-options {
+  z-index: 10;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background: #fff;
+  -webkit-box-shadow: 1px 2px 10px 0 #9B9B9B;
+          box-shadow: 1px 2px 10px 0 #9B9B9B;
+  border-radius: 2px;
+  cursor: pointer;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  opacity: 0;
+  -webkit-transform: translateY(-15px);
+          transform: translateY(-15px);
+  pointer-events: none;
+}
+
+.products-status .products-status-select .products-status-options .products-status-option {
+  display: block;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px 15px;
+  color: #000;
+}
+
+.products-status .products-status-select .products-status-options .products-status-option:hover {
+  background: #000;
+  color: #fff;
+}
+
+.products-status {
+  position: relative;
+}
+
+.products-status .change {
   position: absolute;
   right: 0;
   bottom: 25px;
   height: 40px;
 }
 
-.table-status .change:hover .change-status {
+.products-status .change:hover .change-status {
   display: block;
 }
 
-.table-status .change .publishbtn {
+.products-status .change .publishbtn {
   font-size: 14px;
   font-weight: bold;
   padding: 8px 16px;
@@ -924,12 +1003,12 @@ button:focus {
   cursor: pointer;
 }
 
-.table-status .change .publishbtn.un {
+.products-status .change .publishbtn.un {
   background: #9B9B9B;
   border: 1px solid #9B9B9B;
 }
 
-.table-status .change .change-status {
+.products-status .change .change-status {
   position: absolute;
   top: 100%;
   right: 0;
@@ -942,14 +1021,14 @@ button:focus {
   display: none;
 }
 
-.table-status .change .change-status li {
+.products-status .change .change-status li {
   padding: 10px 16px;
   cursor: pointer;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
-.table-status .change .change-status li:hover {
+.products-status .change .change-status li:hover {
   color: #fff;
   background: #000000;
 }
