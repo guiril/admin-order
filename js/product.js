@@ -1,19 +1,19 @@
 var checkProducts = document.querySelector('#check-all-products');
 var newProdBtn = document.querySelector('#addNewProduct');
-var cancelBtn = document.querySelector('.icon-cancel');
+var cancelBtn = document.querySelector('.cancel-icon');
 var newSpecBtn = document.querySelector('#addNewSpecification');
-var specList = document.querySelector('.specification');
+var specList = document.querySelector('.info-specification');
 
 // 新增產品
 function addNewProd() {
-  let box = document.querySelector('.add-box');
-  box.style.display = 'block';
+  let addNew = document.querySelector('.add-new-product');
+  addNew.style.display = 'block';
 }
 
 // 關閉表單
 function cancelProd() {
-  let box = document.querySelector('.add-box');
-  box.style.display = 'none';
+  let addNew = document.querySelector('.add-new-product');
+  addNew.style.display = 'none';
 }
 
 // 新增產品細節欄位

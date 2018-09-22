@@ -95,6 +95,11 @@ li {
   color: #9B9B9B;
 }
 
+* {
+  font-family: "Helvetica", "Microsoft JhengHei", sans-serif;
+  font-size: 16px;
+}
+
 body {
   font-family: "Helvetica", "Microsoft JhengHei", sans-serif;
   font-size: 16px;
@@ -504,6 +509,7 @@ button:focus {
   display: block;
   margin: 4px 0;
   color: #9B9B9B;
+  line-height: 1.5;
 }
 
 .latest-orders-block .latest-orders-list li .info span i {
@@ -553,6 +559,12 @@ button:focus {
 .orders-view-top .check-orders input[type="checkbox"]:checked + label:before {
   background: #000;
   color: #fff;
+}
+
+.orders-view-top .orders-tag {
+  float: left;
+  -webkit-transform: translateX(40px);
+          transform: translateX(40px);
 }
 
 .orders-event-select {
@@ -671,6 +683,7 @@ button:focus {
   border-radius: 2px;
   line-height: 1.5;
   font-size: 14px;
+  overflow: hidden;
 }
 
 .orders-list thead {
@@ -727,6 +740,10 @@ button:focus {
 
 .orders-product-list li:last-child {
   border-bottom: none;
+}
+
+.orders-product-list li span:first-child {
+  display: block;
 }
 
 .orders-product-list li .num {
@@ -786,6 +803,26 @@ button:focus {
 }
 
 .orders-status .orders-status-select .orders-status-options .orders-status-option:hover {
+  background: #000;
+  color: #fff;
+}
+
+.pagination {
+  text-align: right;
+  margin-right: 42px;
+}
+
+.pagination a {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  line-height: 42px;
+  text-align: center;
+  background: #fff;
+  color: #000;
+}
+
+.pagination a:hover, .pagination a.active {
   background: #000;
   color: #fff;
 }
@@ -1033,7 +1070,7 @@ button:focus {
   background: #000000;
 }
 
-.add-box {
+.add-new-product {
   display: none;
   position: fixed;
   top: 0;
@@ -1042,7 +1079,7 @@ button:focus {
   height: 100%;
 }
 
-.add-box .cover {
+.add-new-product .cover {
   position: absolute;
   top: 0;
   left: 0;
@@ -1053,7 +1090,7 @@ button:focus {
   z-index: 1;
 }
 
-.add-box .main {
+.add-new-product .main {
   position: absolute;
   z-index: 10;
   left: 50%;
@@ -1066,47 +1103,48 @@ button:focus {
   overflow: auto;
 }
 
-.add-box .main .title {
+.add-new-product .main .title {
   background-color: #000;
   color: #fff;
   border-radius: 4px 4px 0 0;
   padding: 20px 35px;
 }
 
-.add-box .main .title::after {
+.add-new-product .main .title::after {
   display: block;
   clear: both;
   content: "";
 }
 
-.add-box .main .title h2 {
+.add-new-product .main .title h2 {
   float: left;
 }
 
-.add-box .main .title .icon-cancel {
+.add-new-product .main .title .cancel-icon {
   float: right;
   cursor: pointer;
   font-size: 22.08px;
 }
 
-.add-box .main .content {
+.add-new-product .main .content {
   padding-left: 30px;
   padding-right: 30px;
 }
 
-.add-box .main .content::after {
+.add-new-product .main .content::after {
   display: block;
   clear: both;
   content: "";
 }
 
-.add-box .main .content .image {
+.add-new-product .main .content .upload-image {
   float: left;
   width: calc(50% - 30px);
   margin-right: 30px;
 }
 
-.add-box .main .content .image .uploadbtn {
+.add-new-product .main .content .upload-image .uploadBtn {
+  display: block;
   padding: 25px 45px;
   margin-bottom: 10px;
   background: #EBEBEB;
@@ -1116,37 +1154,47 @@ button:focus {
   cursor: pointer;
 }
 
-.add-box .main .content .image .uploadbtn i {
+.add-new-product .main .content .upload-image .uploadBtn input {
+  display: none;
+}
+
+.add-new-product .main .content .upload-image .uploadBtn i {
   font-size: 48px;
   margin-bottom: 10px;
 }
 
-.add-box .main .content .image .upload img {
+.add-new-product .main .content .upload-image .images-list::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+.add-new-product .main .content .upload-image .images-list li {
+  float: left;
   margin-bottom: 8px;
-  vertical-align: top;
+  margin-right: 10px;
 }
 
-.add-box .main .content .image .upload img:nth-child(3n-1) {
-  margin-left: 7px;
-  margin-right: 7px;
+.add-new-product .main .content .upload-image .images-list li:nth-child(3n) {
+  margin-right: 0;
 }
 
-.add-box .main .content .other {
+.add-new-product .main .content .write-info {
   float: right;
   width: 50%;
 }
 
-.add-box .main .content .other h4 {
+.add-new-product .main .content .write-info h4 {
   margin-top: 20px;
   margin-bottom: 8px;
 }
 
-.add-box .main .content .other h4:first-child {
+.add-new-product .main .content .write-info h4:first-child {
   margin-top: 0;
 }
 
-.add-box .main .content .other .name,
-.add-box .main .content .other .description {
+.add-new-product .main .content .write-info .info-name,
+.add-new-product .main .content .write-info .info-description {
   display: block;
   padding: 10px 16px;
   width: 100%;
@@ -1155,26 +1203,25 @@ button:focus {
   border-radius: 4px;
 }
 
-.add-box .main .content .other .description {
+.add-new-product .main .content .write-info .info-description {
   height: 170px;
   margin-top: 8px;
   background: #FFFFFF;
   border: 1px solid #CCCCCC;
   border-radius: 4px;
-  resize: none;
 }
 
-.add-box .main .content .other .price {
+.add-new-product .main .content .write-info .info-price {
   width: 90%;
 }
 
-.add-box .main .content .other .price::after {
+.add-new-product .main .content .write-info .info-price::after {
   display: block;
   clear: both;
   content: "";
 }
 
-.add-box .main .content .other .price label {
+.add-new-product .main .content .write-info .info-price label {
   float: left;
   width: 49%;
   border: 1px solid #CCCCCC;
@@ -1185,11 +1232,11 @@ button:focus {
   line-height: 35px;
 }
 
-.add-box .main .content .other .price label:nth-child(2) {
+.add-new-product .main .content .write-info .info-price label:nth-child(2) {
   margin-left: 2%;
 }
 
-.add-box .main .content .other .price input {
+.add-new-product .main .content .write-info .info-price input {
   float: right;
   width: 50%;
   border: none;
@@ -1199,21 +1246,21 @@ button:focus {
   border-radius: 0 4px 4px 0;
 }
 
-.add-box .main .content .other .price input:focus {
+.add-new-product .main .content .write-info .info-price input:focus {
   outline: none;
 }
 
-.add-box .main .content .other .specification {
+.add-new-product .main .content .write-info .info-specification {
   width: 100%;
 }
 
-.add-box .main .content .other .specification::after {
+.add-new-product .main .content .write-info .info-specification::after {
   display: block;
   clear: both;
   content: "";
 }
 
-.add-box .main .content .other .specification label {
+.add-new-product .main .content .write-info .info-specification label {
   float: left;
   border: 1px solid #CCCCCC;
   border-radius: 4px;
@@ -1224,22 +1271,22 @@ button:focus {
   line-height: 35px;
 }
 
-.add-box .main .content .other .specification label:nth-child(3n+1) {
+.add-new-product .main .content .write-info .info-specification label:nth-child(3n+1) {
   width: 29%;
 }
 
-.add-box .main .content .other .specification label:nth-child(3n-1) {
+.add-new-product .main .content .write-info .info-specification label:nth-child(3n-1) {
   width: 31%;
   margin-left: 1%;
   margin-right: 1%;
 }
 
-.add-box .main .content .other .specification label:nth-child(3n) {
+.add-new-product .main .content .write-info .info-specification label:nth-child(3n) {
   width: 38%;
 }
 
-.add-box .main .content .other .specification input,
-.add-box .main .content .other .specification select {
+.add-new-product .main .content .write-info .info-specification input,
+.add-new-product .main .content .write-info .info-specification select {
   float: right;
   width: 50%;
   border: none;
@@ -1249,25 +1296,25 @@ button:focus {
   border-radius: 0 4px 4px 0;
 }
 
-.add-box .main .content .other .specification input:focus,
-.add-box .main .content .other .specification select:focus {
+.add-new-product .main .content .write-info .info-specification input:focus,
+.add-new-product .main .content .write-info .info-specification select:focus {
   outline: none;
 }
 
-.add-box .main .content .other .new-label {
+.add-new-product .main .content .write-info .new-label {
   margin-top: 8px;
 }
 
-.add-box .main .content .other .new-label .addbtn {
+.add-new-product .main .content .write-info .new-label .addbtn {
   width: 100%;
 }
 
-.add-box .main .content .other .save {
+.add-new-product .main .content .write-info .save {
   margin-top: 30px;
   text-align: right;
 }
 
-.add-box .main .content .other .save .savebtn {
+.add-new-product .main .content .write-info .save .savebtn {
   color: #757575;
   background: none;
   border: none;

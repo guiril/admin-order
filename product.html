@@ -167,37 +167,38 @@
         </table>
       </div>
     </div>
-    <div class="add-box">
+    <div class="add-new-product">
       <div class="main">
         <div class="title">
           <h2>ADD NEW PRODUCT</h2>
-          <div class="icon-cancel"><i class="fas fa-times"></i></div>
+          <div class="cancel-icon"><i class="fas fa-times"></i></div>
         </div>
         <div class="content">
-          <div class="image">
-            <div class="uploadbtn">
+          <div class="upload-image">
+            <label class="uploadBtn">
+              <input type="file" name="upload" accept="image/*">
               <i class="fas fa-cloud-upload-alt"></i>
               <p>Drag an image or click here to upload…</p>
-            </div>
-            <div class="upload">
-              <img src="https://picsum.photos/126" alt="">
-              <img src="https://picsum.photos/126" alt="">
-              <img src="https://picsum.photos/126" alt="">
-              <img src="https://picsum.photos/126" alt="">
-              <img src="https://picsum.photos/126" alt="">
-            </div>
+            </label>
+            <ul class="images-list">
+              <li><img src="https://picsum.photos/126" alt=""></li>
+              <li><img src="https://picsum.photos/126" alt=""></li>
+              <li><img src="https://picsum.photos/126" alt=""></li>
+              <li><img src="https://picsum.photos/126" alt=""></li>
+              <li><img src="https://picsum.photos/126" alt=""></li>
+            </ul>
           </div>
-          <div class="other">
+          <div class="write-info">
             <h4>Product Discription</h4>
-            <input class="name" type="text" value="" placeholder="Vestibulum nec">
-            <textarea class="description" placeholder="Writing product descriptions"></textarea>
+            <input class="info-name" type="text" value="" placeholder="Product Name">
+            <textarea class="info-description" placeholder="Product Descriptions"></textarea>
             <h4>Price</h4>
-            <div class="price">
+            <div class="info-price">
               <label title="Original">Original<input type="text" value="$3,200"></label>
               <label title="Discount">Discount<input type="text" value="$2,800"></label>
             </div>
             <h4>Specification</h4>
-            <div class="specification">
+            <div class="info-specification">
               <label title="Size">Size
                 <select>
                   <option value="L">L</option>

@@ -33,6 +33,11 @@ $gray: #9B9B9B;
   color: $gray;
 }
 
+* {
+  font-family: $font-family;
+  font-size: $font-size;
+}
+
 
 body {
   font-family: $font-family;
@@ -380,6 +385,7 @@ button {
           display: block;
           margin: 4px 0;
           color: #9B9B9B;
+          line-height: 1.5;
           i {
             width: 16px;
             text-align: center;
@@ -433,6 +439,10 @@ button {
         }
       }
     }
+  }
+  .orders-tag {
+    float: left;
+    transform: translateX(40px);
   }
 }
 
@@ -539,6 +549,7 @@ button {
   border-radius: 2px;
   line-height: 1.5;
   font-size: 14px;
+  overflow: hidden;
   thead {
     font-size: 16px;
     background: #FFFFFF;
@@ -603,8 +614,11 @@ button {
     &:last-child {
       border-bottom: none;
     }
+    span:first-child {
+      display: block;
+    }
     .num {
-      float: right;
+      float: right;;
     }
   }
 }
@@ -657,6 +671,25 @@ button {
           color: #fff;
         }
       }
+    }
+  }
+}
+
+.pagination {
+  text-align: right;
+  margin-right: $distancX;
+  a {
+    display: inline-block;
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    background: #fff;
+    color: #000;
+    &:hover,
+    &.active {
+      background: #000;
+      color: #fff;
     }
   }
 }
@@ -899,8 +932,7 @@ button {
 }
 
 // 新增商品表單
-
-.add-box {
+.add-new-product {
   display: none;
   position: fixed;
   top: 0;
@@ -937,7 +969,7 @@ button {
       h2 {
         float: left;
       }
-      .icon-cancel {
+      .cancel-icon {
         float: right;
         cursor: pointer;
         font-size: $font-size * 1.38;
@@ -947,11 +979,12 @@ button {
       padding-left: 30px;
       padding-right: 30px;
       @include clearfix;
-      .image {
+      .upload-image {
         float: left;
         width: calc(50% - 30px);
         margin-right: 30px;
-        .uploadbtn {
+        .uploadBtn {
+          display: block;
           padding: 25px 45px;
           margin-bottom: 10px;
           background: #EBEBEB;
@@ -959,23 +992,27 @@ button {
           color: #757575;
           font-weight: bold;
           cursor: pointer;
+          input {
+            display: none;
+          }
           i {
             font-size: $font-size * 3;
             margin-bottom: 10px;
           }
         }
-        .upload {
-          img {
+        .images-list {
+          @include clearfix;
+          li {
+            float: left;
             margin-bottom: 8px;
-            vertical-align: top;
-            &:nth-child(3n-1){
-              margin-left: 7px;
-              margin-right: 7px;
+            margin-right: 10px;
+            &:nth-child(3n){
+              margin-right: 0;
             }
           }
         }
       }
-      .other {
+      .write-info {
         float: right;
         width: 50%;
         h4 {
@@ -985,8 +1022,8 @@ button {
             margin-top: 0;
           }
         }
-        .name,
-        .description {
+        .info-name,
+        .info-description {
           display: block;
           padding: 10px 16px;
           width: 100%;
@@ -994,15 +1031,14 @@ button {
           border: 1px solid #CCCCCC;
           border-radius: 4px;
         }
-        .description {
+        .info-description {
           height: 170px;
           margin-top: 8px;
           background: #FFFFFF;
           border: 1px solid #CCCCCC;
           border-radius: 4px;
-          resize: none;
         }
-        .price {
+        .info-price {
           width: 90%;
           @include clearfix;
           label {
@@ -1031,7 +1067,7 @@ button {
             }
           }
         }
-        .specification {
+        .info-specification {
           width: 100%;
           @include clearfix;
           label {

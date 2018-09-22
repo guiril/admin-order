@@ -44,6 +44,7 @@
               <span class="orders-event-option" data-value="Done">Done</span>
             </div>
           </div>
+          <div class="orders-tag"><i class="fas fa-tags"></i></div>
           <div class="edit-section-select">
             <button class="edit-section-trigger">EDIT SECTION <i class="fas fa-caret-down"></i></button>
             <div class="edit-section-options">
@@ -55,38 +56,38 @@
               </span>
               <span class="edit-section-option">
                 <span class="check-section">
-                  <input type="checkbox" id="check-section-order-customer">
+                  <input type="checkbox" id="check-section-order-customer" checked>
                   <label class="checkbox" for="check-section-order-customer"><i class="far fa-square"></i> Customer</label>
                 </span>
               </span>
               <span class="edit-section-option">
                 <span class="check-section">
-                  <input type="checkbox" id="check-section-order-productList">
+                  <input type="checkbox" id="check-section-order-productList" checked>
                   <label class="checkbox" for="check-section-order-productList"><i class="far fa-square"></i> Product
                     List</label>
                 </span>
               </span>
               <span class="edit-section-option">
                 <span class="check-section">
-                  <input type="checkbox" id="check-section-order-total">
+                  <input type="checkbox" id="check-section-order-total" checked>
                   <label class="checkbox" for="check-section-order-total"><i class="far fa-square"></i> Total</label>
                 </span>
               </span>
               <span class="edit-section-option">
                 <span class="check-section">
-                  <input type="checkbox" id="check-section-order-addToCart">
+                  <input type="checkbox" id="check-section-order-addToCart" checked>
                   <label class="checkbox" for="check-section-order-addToCart"><i class="far fa-square"></i> Add to Cart</label>
                 </span>
               </span>
               <span class="edit-section-option">
                 <span class="check-section">
-                  <input type="checkbox" id="check-section-order-checkout">
+                  <input type="checkbox" id="check-section-order-checkout" checked>
                   <label class="checkbox" for="check-section-order-checkout"><i class="far fa-square"></i> Check-out</label>
                 </span>
               </span>
               <span class="edit-section-option">
                 <span class="check-section">
-                  <input type="checkbox" id="check-section-order-address">
+                  <input type="checkbox" id="check-section-order-address" checked>
                   <label class="checkbox" for="check-section-order-address"><i class="far fa-square"></i> Address</label>
                 </span>
               </span>
@@ -104,7 +105,7 @@
               </span>
               <span class="edit-section-option">
                 <span class="check-section">
-                  <input type="checkbox" id="check-section-order-status">
+                  <input type="checkbox" id="check-section-order-status" checked>
                   <label class="checkbox" for="check-section-order-status"><i class="far fa-square"></i> Status</label>
                 </span>
               </span>
@@ -114,19 +115,20 @@
         <table class="orders-list">
           <thead>
             <tr>
-              <th width="150">Customer</th>
-              <th width="140">Product List</th>
-              <th width="95">Total</th>
-              <th width="135">Add to Cart</th>
-              <th width="135">Check-out</th>
-              <th width="140">Address</th>
-              <th width="165">Status</th>
+              <th width="150px" class="orders-customer">Customer</th>
+              <th width="140px" class="orders-product-list">Product List</th>
+              <th width="95px" class="orders-total">Total</th>
+              <th width="135px" class="orders-add-to-cart">Add to Cart</th>
+              <th width="135px" class="orders-check-out">Check-out</th>
+              <th width="140px" class="orders-address">Address</th>
+              <th width="165px" class="orders-status">Status</th>
             </tr>
           </thead>
           <tbody>
             <!-- 01 -->
             <tr>
-              <td class="orders-customer">
+              <td class="
+                orders-customer">
                 <div class="check-per-order">
                   <input type="checkbox" id="check-order1" name="orders">
                   <label class="checkbox" for="check-order1"></label>
@@ -147,16 +149,16 @@
                   </li>
                 </ul>
               </td>
-              <td>$2,200</td>
-              <td>
+              <td class="orders-total">$2,200</td>
+              <td class="orders-add-to-cart">
                 <p>2018/6/8</p>
                 <p>13:39</p>
               </td>
-              <td>
+              <td class="orders-check-out">
                 <p>2018/6/8</p>
                 <p>20:23</p>
               </td>
-              <td>386 Windler Drives Apt. 358</td>
+              <td class="orders-address">386 Windler Drives Apt. 358</td>
               <td class="orders-status">
                 <div class="orders-status-select">
                   <button class="orders-status-trigger">PAID</button>
@@ -178,17 +180,25 @@
                 </div>
                 <span class="customer-name">Manuel Stephens</span>
               </td>
-              <td class="orders-product-list">Donec facili.</td>
-              <td>$2,200</td>
-              <td>
+              <td class="orders-product-list">
+                <ul>
+                  <li>
+                    <span>Donec facili.</span>
+                    <span class="gray">$1,400</span>
+                    <span class="num">1</span>
+                  </li>
+                </ul>
+              </td>
+              <td class="orders-total">$1,400</td>
+              <td class="orders-add-to-cart">
                 <p>2018/6/8</p>
                 <p>13:39</p>
               </td>
-              <td>
+              <td class="orders-check-out">
                 <p>2018/6/8</p>
                 <p>20:23</p>
               </td>
-              <td>531 Orval Mission Suite 134</td>
+              <td class="orders-address">531 Orval Mission Suite 134</td>
               <td class="orders-status">
                 <div class="orders-status-select">
                   <button class="orders-status-trigger">PAID</button>
@@ -208,19 +218,37 @@
                   <input type="checkbox" id="check-order3" name="orders">
                   <label class="checkbox" for="check-order3"></label>
                 </div>
-                <span class="customer-name">Manuel Stephens</span>
+                <span class="customer-name">Daisy Reynolds</span>
               </td>
-              <td class="orders-product-list">Donec facili.</td>
-              <td>$2,200</td>
-              <td>
+              <td class="orders-product-list">
+                <ul>
+                  <li>
+                    <span>Curabitur lo.</span>
+                    <span class="gray">$1,400</span>
+                    <span class="num">1</span>
+                  </li>
+                  <li>
+                    <span>Donec facili.</span>
+                    <span class="gray">$800</span>
+                    <span class="num">1</span>
+                  </li>
+                  <li>
+                    <span>Nam porttito.</span>
+                    <span class="gray">$800</span>
+                    <span class="num">1</span>
+                  </li>
+                </ul>
+              </td>
+              <td class="orders-total">$3,000</td>
+              <td class="orders-add-to-cart">
                 <p>2018/6/8</p>
                 <p>13:39</p>
               </td>
-              <td>
+              <td class="orders-check-out">
                 <p>2018/6/8</p>
                 <p>20:23</p>
               </td>
-              <td>531 Orval Mission Suite 134</td>
+              <td class="orders-address">531 Orval Mission Suite 134</td>
               <td class="orders-status">
                 <div class="orders-status-select">
                   <button class="orders-status-trigger">PAID</button>
@@ -242,17 +270,30 @@
                 </div>
                 <span class="customer-name">Manuel Stephens</span>
               </td>
-              <td class="orders-product-list">Donec facili.</td>
-              <td>$2,200</td>
-              <td>
+              <td class="orders-product-list">
+                <ul>
+                  <li>
+                    <span>Lorem ipsum.</span>
+                    <span class="gray">$1,400</span>
+                    <span class="num">1</span>
+                  </li>
+                  <li>
+                    <span>Nam porttito.</span>
+                    <span class="gray">$800</span>
+                    <span class="num">1</span>
+                  </li>
+                </ul>
+              </td>
+              <td class="orders-total">$2,800</td>
+              <td class="orders-add-to-cart">
                 <p>2018/6/8</p>
                 <p>13:39</p>
               </td>
-              <td>
+              <td class="orders-check-out">
                 <p>2018/6/8</p>
                 <p>20:23</p>
               </td>
-              <td>531 Orval Mission Suite 134</td>
+              <td class="orders-address">38 Juston Islands Apt. 012</td>
               <td class="orders-status">
                 <div class="orders-status-select">
                   <button class="orders-status-trigger">PAID</button>
@@ -267,6 +308,15 @@
             </tr>
           </tbody>
         </table>
+        <div class="pagination">
+          <a href="#">&lt;&lt;</a>
+          <a href="#" class="active">1</a>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <a href="#">4</a>
+          <a href="#">5</a>
+          <a href="#">&gt;&gt;</a>
+        </div>
       </div>
     </div>
   </div>
