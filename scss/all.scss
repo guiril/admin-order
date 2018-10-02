@@ -14,6 +14,21 @@ $blue: #4A90E2;
 $orange: #F5A623;
 $gray: #9B9B9B;
 
+$pc-media: 960px;
+$pad-media: 768px;
+
+@mixin pc-width {
+  @media (max-width: $pc-media) {
+    @content;
+  }
+}
+
+@mixin pad-width {
+  @media (max-width: $pad-media) {
+    @content;
+  }
+}
+
 .green {
   background: $green;
   border: 1px solid $green;
@@ -306,6 +321,12 @@ button {
   box-shadow: 0 0 10px 5px #EBEBEB;
   border-radius: 3px;
   padding: 30px 40px;
+  @include pc-width() {
+    float: none;
+    width: auto;
+    margin-right: $distancX;
+    margin-bottom: 20px;
+  }
   .website-list {
     margin-top: 6px;
     li {
@@ -313,6 +334,9 @@ button {
       padding: 24px 0;
       &:last-child {
         border: none;
+        @include pc-width() {
+          @include clearfix;
+        }
       }
       span {
         display: inline-block;
@@ -326,18 +350,29 @@ button {
           text-align: right;
           width: 60px;
           font-size: $font-size * 1.25;
+          @include pc-width() {
+            width: 25%;
+          }
         }
         &.up {
           color: $green;
           width: 60px;
           margin-left: 16px;
           cursor: pointer;
+          @include pc-width() {
+            float: right;
+            width: auto;
+          }
         }
         &.down {
           color: $red;
           width: 60px;
           margin-left: 16px;
           cursor: pointer;
+          @include pc-width() {
+            float: right;
+            width: auto;
+          }
         }
       }
       i {
@@ -362,6 +397,11 @@ button {
   box-shadow: 0 0 10px 5px #EBEBEB;
   border-radius: 3px;
   padding: 30px 40px;
+  @include pc-width() {
+    float: none;
+    width: auto;
+    margin-left: $distancX;
+  }
   .latest-orders-list {
     margin-top: 22px;
     li {
@@ -378,6 +418,9 @@ button {
       }
       .info {
         float: left;
+        @include pc-width() {
+          width: 50%;
+        }
         h3 {
           margin-top: 10px;
         }
@@ -530,6 +573,12 @@ button {
       display: block;
       padding: 12px 20px;
       width: 150px;
+      // 響應式隱藏選項
+      @include pad-width() {
+        &:nth-child(5) {
+          display: none;
+        }
+      }
       &:hover {
         background: #000;
         color: #fff;
@@ -623,10 +672,20 @@ button {
   }
 }
 
+// 加入購物車時間
+.orders-add-to-cart {
+  @include pad-width() {
+    display: none;
+  }
+}
+
 // 訂單狀態
 .orders-status {
   .orders-status-select {
     position: relative;
+    @include pc-width() {
+      
+    }
     &.opened {
       .orders-status-options {
         opacity: 1;
@@ -774,6 +833,7 @@ button {
   }
 }
 
+// 商品名稱
 .products-product {  
   .check-per-product {
     position: relative;
@@ -806,9 +866,16 @@ button {
       vertical-align: middle;
       margin-right: 8px;
     }
+    span {
+      @include pad-width() {
+        display: block;
+        margin-top: 10px;
+      }
+    }
   }
 }
 
+// 商品樣式
 .table-groups {
   li {
     padding: 8px 0;
@@ -960,6 +1027,10 @@ button {
     background: #FFFFFF;
     border-radius: 4px;
     overflow: auto;
+    @include pad-width() {
+      width: 100%;
+      margin-left: -384px;
+    }
     .title {
       background-color: #000;
       color: #fff;
