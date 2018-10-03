@@ -1335,7 +1335,7 @@ button:focus {
 @media (max-width: 414px) {
   .add-new-product .main {
     margin: 0 auto;
-    max-height: 667px;
+    max-height: 568px;
   }
 }
 
