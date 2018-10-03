@@ -821,6 +821,10 @@ button {
 .pagination {
   text-align: right;
   margin-right: $distancX;
+  @include phone-width() {
+    margin: 0 auto;
+    text-align: center;
+  }
   a {
     display: inline-block;
     width: 42px;
@@ -829,6 +833,11 @@ button {
     text-align: center;
     background: #fff;
     color: #000;
+    @include phone-width() {
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+    }
     &:hover,
     &.active {
       background: #000;
@@ -1091,7 +1100,7 @@ button {
 
 // 新增商品表單
 .add-new-product {
-  // display: none;
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -1116,6 +1125,7 @@ button {
     overflow: auto;
     @include phone-width() {
       margin: 0 auto;
+      max-height: 667px;
     }
     .title {
       background-color: #000;

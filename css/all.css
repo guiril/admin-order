@@ -1011,6 +1011,13 @@ button:focus {
   margin-right: 42px;
 }
 
+@media (max-width: 414px) {
+  .pagination {
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
 .pagination a {
   display: inline-block;
   width: 42px;
@@ -1019,6 +1026,14 @@ button:focus {
   text-align: center;
   background: #fff;
   color: #000;
+}
+
+@media (max-width: 414px) {
+  .pagination a {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
 }
 
 .pagination a:hover, .pagination a.active {
@@ -1289,6 +1304,7 @@ button:focus {
 }
 
 .add-new-product {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -1319,6 +1335,7 @@ button:focus {
 @media (max-width: 414px) {
   .add-new-product .main {
     margin: 0 auto;
+    max-height: 667px;
   }
 }
 
