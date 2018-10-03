@@ -350,6 +350,7 @@ button {
 
 // 圖表
 .activity-chart {
+  position: relative;
   margin: 0 $distancX 20px $distancX;
   height: auto;
   padding: 30px 40px;
