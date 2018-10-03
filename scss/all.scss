@@ -16,6 +16,7 @@ $gray: #9B9B9B;
 
 $pc-media: 960px;
 $pad-media: 768px;
+$phone-media: 414px;
 
 @mixin pc-width {
   @media (max-width: $pc-media) {
@@ -25,6 +26,12 @@ $pad-media: 768px;
 
 @mixin pad-width {
   @media (max-width: $pad-media) {
+    @content;
+  }
+}
+
+@mixin phone-width {
+  @media (max-width: 414px) {
     @content;
   }
 }
@@ -130,6 +137,7 @@ button {
 .container {
   max-width: 1024px;
   margin: 0 auto;
+  padding: 0 15px;
   @include clearfix;
 }
 
@@ -144,16 +152,25 @@ button {
   background: #000;
   color: #fff;
   @include clearfix;
+  position: relative;
   .logo {
     float: left;
     margin-left: $distancX;
     padding: 20px 0;
     font-weight: bold;
+    @include phone-width() {
+      float: none;
+      margin-left: 0;
+    }
   }
   .menu {
     float: left;
     margin-left: 80px;
     text-align: center;
+    @include phone-width() {
+      float: none;
+      margin: 0 auto;
+    }
     li {
       display: inline-block;
       margin-right: 18px;
@@ -177,6 +194,12 @@ button {
     padding: 25px 0;
     margin-right: $distancX;
     font-weight: bold;
+    @include phone-width() {
+      float: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
   }
 }
 
@@ -184,9 +207,17 @@ button {
   height: 30px;
   line-height: 30px;
   @include clearfix;
+  @include phone-width() {
+    height: auto;
+    line-height: 1;
+  }
   h2 {
     float: left;
     margin-left: $distancX;
+    @include phone-width() {
+      float: none;
+      margin-left: 0;
+    }
   }
 }
 
@@ -195,6 +226,10 @@ button {
   float: right;
   margin-right: $distancX;
   @include clearfix;
+  @include phone-width() {
+    float: none;
+    margin: 10px 0;
+  }
   // 日期
   .change-data-date {
     float: left;
@@ -265,6 +300,9 @@ button {
 .overview-list {
   margin: 20px $distancX;
   text-align: center;
+  @include phone-width() {
+    margin: 0;
+  }
   li {
     display: inline-block;
     width: 32%;
@@ -274,8 +312,18 @@ button {
     box-shadow: 0 0 10px 5px #EBEBEB;
     border-radius: 3px;
     padding: 30px 0;
+    @include phone-width() {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+    }
     &:nth-child(2) {
       margin: 0 2%;
+      @include phone-width() {
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: 10px;
+      }
     }
     .title {
       i {
@@ -307,16 +355,21 @@ button {
   padding: 30px 40px;
   background: #FFF;
   box-shadow: 0 0 10px 5px #EBEBEB;
-  border-radius: 3px; 
+  border-radius: 3px;
+  @include phone-width() {
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+  }
 }
 
 // 購買平台
 .website-block {
   float: left;
   margin-left: $distancX;
+  margin-right: 0.4%;
   width: 45%;
   height: 456px;
-  margin-right: 0.4%;
   background: #FFFFFF;
   box-shadow: 0 0 10px 5px #EBEBEB;
   border-radius: 3px;
@@ -326,6 +379,13 @@ button {
     width: auto;
     margin-right: $distancX;
     margin-bottom: 20px;
+  }
+  @include phone-width() {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 10px;
+    height: auto;
   }
   .website-list {
     margin-top: 6px;
@@ -352,6 +412,11 @@ button {
           font-size: $font-size * 1.25;
           @include pc-width() {
             width: 25%;
+          }
+          @include phone-width() {
+            text-align: left;
+            display: block;
+            margin-top: 15px;
           }
         }
         &.up {
@@ -402,6 +467,11 @@ button {
     width: auto;
     margin-left: $distancX;
   }
+  @include phone-width() {
+    margin-left: 0;
+    margin-right: 0;
+    height: auto;
+  }
   .latest-orders-list {
     margin-top: 22px;
     li {
@@ -415,11 +485,20 @@ button {
       .pic {
         float: left;
         margin-right: 20px;
+        @include phone-width() {
+          float: none;;
+          margin-right: 0;
+          text-align: center;
+        }
       }
       .info {
         float: left;
         @include pc-width() {
           width: 50%;
+        }
+        @include phone-width() {
+          float: none;
+          width: auto;
         }
         h3 {
           margin-top: 10px;
@@ -461,6 +540,9 @@ button {
 .orders-view-top {
   margin: 0 $distancX;
   @include clearfix;
+  @include pad-width() {
+    margin: 0;
+  }
   .check-orders {
     float: left;
     position: relative;
@@ -544,6 +626,9 @@ button {
 .edit-section-select {
   float: right;
   position: relative;
+  @include pad-width() {
+    display: none;
+  }
   &.opened {
     .edit-section-options {
       opacity: 1;
@@ -573,12 +658,6 @@ button {
       display: block;
       padding: 12px 20px;
       width: 150px;
-      // 響應式隱藏選項
-      @include pad-width() {
-        &:nth-child(5) {
-          display: none;
-        }
-      }
       &:hover {
         background: #000;
         color: #fff;
@@ -607,6 +686,9 @@ button {
     tr {
       th {
         padding: 15px 20px;
+        @include pad-width() {
+          display: none;
+        }
       }
     }
   }
@@ -617,6 +699,15 @@ button {
       }
       td {
         padding: 20px;
+        @include pad-width() {
+          display: block;
+          padding: 10px;
+          &:before {
+            content: attr(data-title) '：';
+            display: inline-block;
+            font-weight: bold;
+          }
+        }
       }
     }
   }
@@ -669,13 +760,6 @@ button {
     .num {
       float: right;;
     }
-  }
-}
-
-// 加入購物車時間
-.orders-add-to-cart {
-  @include pad-width() {
-    display: none;
   }
 }
 
@@ -818,6 +902,9 @@ button {
     tr {
       th {
         padding: 15px 20px;
+        @include pad-width() {
+          display: none;
+        }
       }
     }
   }
@@ -828,6 +915,16 @@ button {
         }
       td {
         padding: 20px;
+        @include pad-width() {
+          display: block;
+          padding: 10px;
+          &:before {
+            display: inline-block;
+            content: attr(data-title)'：';
+            font-weight: bold;
+            margin-bottom: 8px;
+          }
+        }
       }
     }
   }
@@ -865,12 +962,6 @@ button {
     img {
       vertical-align: middle;
       margin-right: 8px;
-    }
-    span {
-      @include pad-width() {
-        display: block;
-        margin-top: 10px;
-      }
     }
   }
 }
@@ -1000,36 +1091,31 @@ button {
 
 // 新增商品表單
 .add-new-product {
-  display: none;
+  // display: none;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  .cover {
-    position: absolute;
+  right: 0;
+  bottom: 0;
+  .back {
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    right: 0;
+    bottom: 0;
     background: #000;
     opacity: 0.5;
-    z-index: 1;
   }
   .main {
-    position: absolute;
-    z-index: 10;
-    left: 50%;
-    top: 90px;
-    margin-left: -470px;
-    width: 940px;
-    height: 700px;
+    position: relative;
+    margin: 100px auto;
+    max-width: 940px;
+    max-height: 700px;
     background: #FFFFFF;
     border-radius: 4px;
     overflow: auto;
-    @include pad-width() {
-      width: 100%;
-      margin-left: -384px;
+    @include phone-width() {
+      margin: 0 auto;
     }
     .title {
       background-color: #000;
@@ -1040,7 +1126,7 @@ button {
       h2 {
         float: left;
       }
-      .cancel-icon {
+      .close-icon {
         float: right;
         cursor: pointer;
         font-size: $font-size * 1.38;
@@ -1054,6 +1140,11 @@ button {
         float: left;
         width: calc(50% - 30px);
         margin-right: 30px;
+        @include pad-width() {
+          float: none;
+          width: 100%;
+          margin-right: 0;
+        }
         .uploadBtn {
           display: block;
           padding: 25px 45px;
@@ -1079,6 +1170,9 @@ button {
             margin-right: 10px;
             &:nth-child(3n){
               margin-right: 0;
+              @include pad-width() {
+                margin-right: 10px;
+              }
             }
           }
         }
@@ -1086,6 +1180,10 @@ button {
       .write-info {
         float: right;
         width: 50%;
+        @include pad-width() {
+          float: none;
+          width: 100%;
+        }
         h4 {
           margin-top: 20px;
           margin-bottom: 8px;
@@ -1110,69 +1208,116 @@ button {
           border-radius: 4px;
         }
         .info-price {
-          width: 90%;
-          @include clearfix;
-          label {
-            float: left;
-            width: 49%;
-            border: 1px solid #CCCCCC;
-            border-radius: 4px;
-            background: #EBEBEB;
-            padding-left: 8px;
-            height: 35px;
-            line-height: 35px;
-            &:nth-child(2) {
-              margin-left: 2%;
+          width: 100%;
+          .orig-price,
+          .disc-price {
+            position: relative;
+            display: inline-block;
+            width: 40%;
+            @include phone-width() {
+              width: 100%;
+              margin-bottom: 10px;
             }
-          }
-          input {
-            float: right;
-            width: 50%;
-            border: none;
-            background: #fff;
-            text-align: right;
-            padding: 7px 16px;
-            border-radius: 0 4px 4px 0;
-            &:focus {
-              outline: none;
+            label {
+              position: absolute;
+              width: 80px;
+              height: 38px;
+              line-height: 38px;
+              text-align: center;
+              background: #EBEBEB;
+              border-radius: 4px 0 0 4px;
+            }
+            input {
+              padding-left: 85px;
+              padding-right: 16px;
+              border: 1px solid #CCCCCC;
+              border-radius: 4px;
+              width: 100%;
+              height: 38px;
+              line-height: 38px;
+              &:focus {
+                outline: none;
+              }
             }
           }
         }
         .info-specification {
           width: 100%;
-          @include clearfix;
-          label {
-            float: left;
-            border: 1px solid #CCCCCC;
-            border-radius: 4px;
-            background: #EBEBEB;
-            padding-left: 8px;
-            margin-bottom: 8px;
-            height: 35px;
-            line-height: 35px;
-            &:nth-child(3n+1) {
-              width: 29%;
+          .spec-groups {
+            margin-bottom: 10px;
+            @include clearfix;
+          }
+          .spec-size {
+            width: 28%;
+            @include phone-width() {
+              width: 100%;
             }
-            &:nth-child(3n-1) {
-              width: 31%;
-              margin-left: 1%; 
-              margin-right: 1%;
-            }
-            &:nth-child(3n) {
-              width: 38%;
+            select {
+              width: 50%;
+              height: 38px;
+              line-height: 38px;
+              text-align: right;
+              border: 1px solid #CCCCCC;
+              border-radius: 4px;
+              margin-left: 60px;
+              padding-left: 8px;
+              @include pad-width() {
+                width: 70%;
+              }
+              @include phone-width() {
+                margin-left: 20px;
+              }
+              &:focus {
+                outline: none;
+              }
             }
           }
-          input,
-          select {
-            float: right;
-            width: 50%;
-            border: none;
-            background: #fff;
-            text-align: right;
-            padding: 7px 12px;
-            border-radius: 0 4px 4px 0;
-            &:focus {
-              outline: none;
+          .spec-color {
+            width: 34%;
+            @include phone-width() {
+              width: 100%;
+            }
+          }
+          .spec-inventory {
+            width: 34%;
+            @include phone-width() {
+              width: 100%;
+            }
+          }
+          .spec-size,
+          .spec-color,
+          .spec-inventory {
+            position: relative;
+            float: left;
+            margin: 0 2px;
+            height: 38px;
+            line-height: 38px;
+            text-align: center;
+            margin-bottom: 10px;
+            label {
+              position: absolute;
+              top: 0;
+              left: 0;
+              padding: 0 16px;
+              background: #EBEBEB;
+              border-radius: 4px 0 0 4px;
+            }
+            input {
+              padding-left: 85px;
+              padding-right: 16px;
+              width: 100%;
+              height: 38px;
+              line-height: 38px;
+              text-align: right;
+              border: 1px solid #CCCCCC;
+              border-radius: 4px;
+              @include phone-width() {
+                width: 70%;
+                margin-left: 20px;
+              }
+              &:focus {
+                outline: none;
+              }
             }
           }
         }

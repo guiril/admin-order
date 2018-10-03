@@ -1,6 +1,6 @@
 var checkProducts = document.querySelector('#check-all-products');
 var newProdBtn = document.querySelector('#addNewProduct');
-var cancelBtn = document.querySelector('.cancel-icon');
+var closeBtn = document.querySelector('.close-icon');
 var newSpecBtn = document.querySelector('#addNewSpecification');
 var specList = document.querySelector('.info-specification');
 
@@ -11,14 +11,14 @@ function addNewProd() {
 }
 
 // 關閉表單
-function cancelProd() {
+function closeProd() {
   let addNew = document.querySelector('.add-new-product');
   addNew.style.display = 'none';
 }
 
 // 新增產品細節欄位
 function addNewSpec() {
-  specList.innerHTML += '<label title="Size">Size<select><option value="L">L</option><option value="M">M</option><option value="S">S</option></select></label><label title="Color">Color<input type="text" value="Gray"></label><label title="Inventory">Inventory<input type="text" value="15"></label>';
+  specList.innerHTML += ' <div class="spec-groups"><div class="spec-size"><label title="Size">Size</label><select><option value="L">L</option><option value="M">M</option><option value="S">S</option></select></div><div class="spec-color"><label title="Color">Color</label><input type="text" value="Gray"></div><div class="spec-inventory"><label title="Inventory">Inventory</label><input type="text" value="15"></div></div>';
 }
 
 checkProducts.addEventListener('click', function () {
@@ -37,7 +37,7 @@ checkProducts.addEventListener('click', function () {
 });
 
 newProdBtn.addEventListener('click', addNewProd, false);
-cancelBtn.addEventListener('click', cancelProd, false);
+closeBtn.addEventListener('click', closeProd, false);
 newSpecBtn.addEventListener('click', addNewSpec, false);
 
 $(document).ready(function () {

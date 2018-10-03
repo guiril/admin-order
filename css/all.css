@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/ 
   v2.0 | 20110126
   License: none (public domain)
@@ -173,6 +174,7 @@ button:focus {
 .container {
   max-width: 1024px;
   margin: 0 auto;
+  padding: 0 15px;
 }
 
 .container::after {
@@ -189,6 +191,7 @@ button:focus {
 .header {
   background: #000;
   color: #fff;
+  position: relative;
 }
 
 .header::after {
@@ -204,10 +207,24 @@ button:focus {
   font-weight: bold;
 }
 
+@media (max-width: 414px) {
+  .header .logo {
+    float: none;
+    margin-left: 0;
+  }
+}
+
 .header .menu {
   float: left;
   margin-left: 80px;
   text-align: center;
+}
+
+@media (max-width: 414px) {
+  .header .menu {
+    float: none;
+    margin: 0 auto;
+  }
 }
 
 .header .menu li {
@@ -236,6 +253,15 @@ button:focus {
   font-weight: bold;
 }
 
+@media (max-width: 414px) {
+  .header .user {
+    float: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
 .overview-top {
   height: 30px;
   line-height: 30px;
@@ -247,9 +273,23 @@ button:focus {
   content: "";
 }
 
+@media (max-width: 414px) {
+  .overview-top {
+    height: auto;
+    line-height: 1;
+  }
+}
+
 .overview-top h2 {
   float: left;
   margin-left: 42px;
+}
+
+@media (max-width: 414px) {
+  .overview-top h2 {
+    float: none;
+    margin-left: 0;
+  }
 }
 
 .change-data {
@@ -261,6 +301,13 @@ button:focus {
   display: block;
   clear: both;
   content: "";
+}
+
+@media (max-width: 414px) {
+  .change-data {
+    float: none;
+    margin: 10px 0;
+  }
 }
 
 .change-data .change-data-date {
@@ -344,6 +391,12 @@ button:focus {
   text-align: center;
 }
 
+@media (max-width: 414px) {
+  .overview-list {
+    margin: 0;
+  }
+}
+
 .overview-list li {
   display: inline-block;
   width: 32%;
@@ -356,8 +409,24 @@ button:focus {
   padding: 30px 0;
 }
 
+@media (max-width: 414px) {
+  .overview-list li {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
 .overview-list li:nth-child(2) {
   margin: 0 2%;
+}
+
+@media (max-width: 414px) {
+  .overview-list li:nth-child(2) {
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
 }
 
 .overview-list li .title i {
@@ -393,12 +462,20 @@ button:focus {
   border-radius: 3px;
 }
 
+@media (max-width: 414px) {
+  .activity-chart {
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+  }
+}
+
 .website-block {
   float: left;
   margin-left: 42px;
+  margin-right: 0.4%;
   width: 45%;
   height: 456px;
-  margin-right: 0.4%;
   background: #FFFFFF;
   -webkit-box-shadow: 0 0 10px 5px #EBEBEB;
           box-shadow: 0 0 10px 5px #EBEBEB;
@@ -412,6 +489,16 @@ button:focus {
     width: auto;
     margin-right: 42px;
     margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 414px) {
+  .website-block {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 10px;
+    height: auto;
   }
 }
 
@@ -456,6 +543,14 @@ button:focus {
 @media (max-width: 960px) {
   .website-block .website-list li span.amount {
     width: 25%;
+  }
+}
+
+@media (max-width: 414px) {
+  .website-block .website-list li span.amount {
+    text-align: left;
+    display: block;
+    margin-top: 15px;
   }
 }
 
@@ -517,6 +612,14 @@ button:focus {
   }
 }
 
+@media (max-width: 414px) {
+  .latest-orders-block {
+    margin-left: 0;
+    margin-right: 0;
+    height: auto;
+  }
+}
+
 .latest-orders-block .latest-orders-list {
   margin-top: 22px;
 }
@@ -542,6 +645,14 @@ button:focus {
   margin-right: 20px;
 }
 
+@media (max-width: 414px) {
+  .latest-orders-block .latest-orders-list li .pic {
+    float: none;
+    margin-right: 0;
+    text-align: center;
+  }
+}
+
 .latest-orders-block .latest-orders-list li .info {
   float: left;
 }
@@ -549,6 +660,13 @@ button:focus {
 @media (max-width: 960px) {
   .latest-orders-block .latest-orders-list li .info {
     width: 50%;
+  }
+}
+
+@media (max-width: 414px) {
+  .latest-orders-block .latest-orders-list li .info {
+    float: none;
+    width: auto;
   }
 }
 
@@ -596,6 +714,12 @@ button:focus {
   display: block;
   clear: both;
   content: "";
+}
+
+@media (max-width: 768px) {
+  .orders-view-top {
+    margin: 0;
+  }
 }
 
 .orders-view-top .check-orders {
@@ -682,6 +806,12 @@ button:focus {
   position: relative;
 }
 
+@media (max-width: 768px) {
+  .edit-section-select {
+    display: none;
+  }
+}
+
 .edit-section-select.opened .edit-section-options {
   opacity: 1;
   -webkit-transform: translateY(0);
@@ -719,12 +849,6 @@ button:focus {
   width: 150px;
 }
 
-@media (max-width: 768px) {
-  .edit-section-select .edit-section-options .edit-section-option:nth-child(5) {
-    display: none;
-  }
-}
-
 .edit-section-select .edit-section-options .edit-section-option:hover {
   background: #000;
   color: #fff;
@@ -754,12 +878,30 @@ button:focus {
   padding: 15px 20px;
 }
 
+@media (max-width: 768px) {
+  .orders-list thead tr th {
+    display: none;
+  }
+}
+
 .orders-list tbody tr:nth-child(2n) {
   background: #EBEBEB;
 }
 
 .orders-list tbody tr td {
   padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .orders-list tbody tr td {
+    display: block;
+    padding: 10px;
+  }
+  .orders-list tbody tr td:before {
+    content: attr(data-title) "：";
+    display: inline-block;
+    font-weight: bold;
+  }
 }
 
 .orders-customer .check-per-order {
@@ -805,12 +947,6 @@ button:focus {
 
 .orders-product-list li .num {
   float: right;
-}
-
-@media (max-width: 768px) {
-  .orders-add-to-cart {
-    display: none;
-  }
 }
 
 .orders-status .orders-status-select {
@@ -958,12 +1094,31 @@ button:focus {
   padding: 15px 20px;
 }
 
+@media (max-width: 768px) {
+  .products-list thead tr th {
+    display: none;
+  }
+}
+
 .products-list tbody tr:nth-child(2n) {
   background: #EBEBEB;
 }
 
 .products-list tbody tr td {
   padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .products-list tbody tr td {
+    display: block;
+    padding: 10px;
+  }
+  .products-list tbody tr td:before {
+    display: inline-block;
+    content: attr(data-title) "：";
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
 }
 
 .products-product .check-per-product {
@@ -994,13 +1149,6 @@ button:focus {
 .products-product .picText img {
   vertical-align: middle;
   margin-right: 8px;
-}
-
-@media (max-width: 768px) {
-  .products-product .picText span {
-    display: block;
-    margin-top: 10px;
-  }
 }
 
 .table-groups li {
@@ -1141,42 +1289,36 @@ button:focus {
 }
 
 .add-new-product {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
 }
 
-.add-new-product .cover {
-  position: absolute;
+.add-new-product .back {
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
   background: #000;
   opacity: 0.5;
-  z-index: 1;
 }
 
 .add-new-product .main {
-  position: absolute;
-  z-index: 10;
-  left: 50%;
-  top: 90px;
-  margin-left: -470px;
-  width: 940px;
-  height: 700px;
+  position: relative;
+  margin: 100px auto;
+  max-width: 940px;
+  max-height: 700px;
   background: #FFFFFF;
   border-radius: 4px;
   overflow: auto;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 414px) {
   .add-new-product .main {
-    width: 100%;
-    margin-left: -384px;
+    margin: 0 auto;
   }
 }
 
@@ -1197,7 +1339,7 @@ button:focus {
   float: left;
 }
 
-.add-new-product .main .title .cancel-icon {
+.add-new-product .main .title .close-icon {
   float: right;
   cursor: pointer;
   font-size: 22.08px;
@@ -1218,6 +1360,14 @@ button:focus {
   float: left;
   width: calc(50% - 30px);
   margin-right: 30px;
+}
+
+@media (max-width: 768px) {
+  .add-new-product .main .content .upload-image {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+  }
 }
 
 .add-new-product .main .content .upload-image .uploadBtn {
@@ -1256,9 +1406,22 @@ button:focus {
   margin-right: 0;
 }
 
+@media (max-width: 768px) {
+  .add-new-product .main .content .upload-image .images-list li:nth-child(3n) {
+    margin-right: 10px;
+  }
+}
+
 .add-new-product .main .content .write-info {
   float: right;
   width: 50%;
+}
+
+@media (max-width: 768px) {
+  .add-new-product .main .content .write-info {
+    float: none;
+    width: 100%;
+  }
 }
 
 .add-new-product .main .content .write-info h4 {
@@ -1289,41 +1452,48 @@ button:focus {
 }
 
 .add-new-product .main .content .write-info .info-price {
-  width: 90%;
+  width: 100%;
 }
 
-.add-new-product .main .content .write-info .info-price::after {
-  display: block;
-  clear: both;
-  content: "";
+.add-new-product .main .content .write-info .info-price .orig-price,
+.add-new-product .main .content .write-info .info-price .disc-price {
+  position: relative;
+  display: inline-block;
+  width: 40%;
 }
 
-.add-new-product .main .content .write-info .info-price label {
-  float: left;
-  width: 49%;
+@media (max-width: 414px) {
+  .add-new-product .main .content .write-info .info-price .orig-price,
+  .add-new-product .main .content .write-info .info-price .disc-price {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+.add-new-product .main .content .write-info .info-price .orig-price label,
+.add-new-product .main .content .write-info .info-price .disc-price label {
+  position: absolute;
+  width: 80px;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  background: #EBEBEB;
+  border-radius: 4px 0 0 4px;
+}
+
+.add-new-product .main .content .write-info .info-price .orig-price input,
+.add-new-product .main .content .write-info .info-price .disc-price input {
+  padding-left: 85px;
+  padding-right: 16px;
   border: 1px solid #CCCCCC;
   border-radius: 4px;
-  background: #EBEBEB;
-  padding-left: 8px;
-  height: 35px;
-  line-height: 35px;
+  width: 100%;
+  height: 38px;
+  line-height: 38px;
 }
 
-.add-new-product .main .content .write-info .info-price label:nth-child(2) {
-  margin-left: 2%;
-}
-
-.add-new-product .main .content .write-info .info-price input {
-  float: right;
-  width: 50%;
-  border: none;
-  background: #fff;
-  text-align: right;
-  padding: 7px 16px;
-  border-radius: 0 4px 4px 0;
-}
-
-.add-new-product .main .content .write-info .info-price input:focus {
+.add-new-product .main .content .write-info .info-price .orig-price input:focus,
+.add-new-product .main .content .write-info .info-price .disc-price input:focus {
   outline: none;
 }
 
@@ -1331,50 +1501,121 @@ button:focus {
   width: 100%;
 }
 
-.add-new-product .main .content .write-info .info-specification::after {
+.add-new-product .main .content .write-info .info-specification .spec-groups {
+  margin-bottom: 10px;
+}
+
+.add-new-product .main .content .write-info .info-specification .spec-groups::after {
   display: block;
   clear: both;
   content: "";
 }
 
-.add-new-product .main .content .write-info .info-specification label {
-  float: left;
+.add-new-product .main .content .write-info .info-specification .spec-size {
+  width: 28%;
+}
+
+@media (max-width: 414px) {
+  .add-new-product .main .content .write-info .info-specification .spec-size {
+    width: 100%;
+  }
+}
+
+.add-new-product .main .content .write-info .info-specification .spec-size select {
+  width: 50%;
+  height: 38px;
+  line-height: 38px;
+  text-align: right;
   border: 1px solid #CCCCCC;
   border-radius: 4px;
-  background: #EBEBEB;
+  margin-left: 60px;
   padding-left: 8px;
-  margin-bottom: 8px;
-  height: 35px;
-  line-height: 35px;
 }
 
-.add-new-product .main .content .write-info .info-specification label:nth-child(3n+1) {
-  width: 29%;
+@media (max-width: 768px) {
+  .add-new-product .main .content .write-info .info-specification .spec-size select {
+    width: 70%;
+  }
 }
 
-.add-new-product .main .content .write-info .info-specification label:nth-child(3n-1) {
-  width: 31%;
-  margin-left: 1%;
-  margin-right: 1%;
+@media (max-width: 414px) {
+  .add-new-product .main .content .write-info .info-specification .spec-size select {
+    margin-left: 20px;
+  }
 }
 
-.add-new-product .main .content .write-info .info-specification label:nth-child(3n) {
-  width: 38%;
+.add-new-product .main .content .write-info .info-specification .spec-size select:focus {
+  outline: none;
 }
 
-.add-new-product .main .content .write-info .info-specification input,
-.add-new-product .main .content .write-info .info-specification select {
-  float: right;
-  width: 50%;
-  border: none;
-  background: #fff;
+.add-new-product .main .content .write-info .info-specification .spec-color {
+  width: 34%;
+}
+
+@media (max-width: 414px) {
+  .add-new-product .main .content .write-info .info-specification .spec-color {
+    width: 100%;
+  }
+}
+
+.add-new-product .main .content .write-info .info-specification .spec-inventory {
+  width: 34%;
+}
+
+@media (max-width: 414px) {
+  .add-new-product .main .content .write-info .info-specification .spec-inventory {
+    width: 100%;
+  }
+}
+
+.add-new-product .main .content .write-info .info-specification .spec-size,
+.add-new-product .main .content .write-info .info-specification .spec-color,
+.add-new-product .main .content .write-info .info-specification .spec-inventory {
+  position: relative;
+  float: left;
+  margin: 0 2px;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.add-new-product .main .content .write-info .info-specification .spec-size label,
+.add-new-product .main .content .write-info .info-specification .spec-color label,
+.add-new-product .main .content .write-info .info-specification .spec-inventory label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 16px;
+  background: #EBEBEB;
+  border-radius: 4px 0 0 4px;
+}
+
+.add-new-product .main .content .write-info .info-specification .spec-size input,
+.add-new-product .main .content .write-info .info-specification .spec-color input,
+.add-new-product .main .content .write-info .info-specification .spec-inventory input {
+  padding-left: 85px;
+  padding-right: 16px;
+  width: 100%;
+  height: 38px;
+  line-height: 38px;
   text-align: right;
-  padding: 7px 12px;
-  border-radius: 0 4px 4px 0;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
 }
 
-.add-new-product .main .content .write-info .info-specification input:focus,
-.add-new-product .main .content .write-info .info-specification select:focus {
+@media (max-width: 414px) {
+  .add-new-product .main .content .write-info .info-specification .spec-size input,
+  .add-new-product .main .content .write-info .info-specification .spec-color input,
+  .add-new-product .main .content .write-info .info-specification .spec-inventory input {
+    width: 70%;
+    margin-left: 20px;
+  }
+}
+
+.add-new-product .main .content .write-info .info-specification .spec-size input:focus,
+.add-new-product .main .content .write-info .info-specification .spec-color input:focus,
+.add-new-product .main .content .write-info .info-specification .spec-inventory input:focus {
   outline: none;
 }
 
